@@ -1,0 +1,6 @@
+@import './header.css';
+
+body {
+	background-color: antiquewhite;
+	display: flex;
+}
