@@ -5,35 +5,46 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
-
+	<title>Receps Recept</title>
+	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Permanent+Marker|Lato" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 	<div class="header">
-		<h1 class="header__title">
-			JULIUS RECEPT
-		</h1>
+		<h1 class="header__title">Receps Recept</h1>
 	</div>
-	<div class="content">
-		<h2 class="content__title">Recept</h2>
-		<div class="content__card-wrapper">
-			<a class="recipe-card" href="http://google.com">
-				<img src="images/buffet-chicken-cooking-5938.jpg" alt="" class="recipe-card__image">
+	<div class="navbar">
+		<a class="navbar__item navbar__item--active" href="/">
+			Home
+		</a>
+		<a class="navbar__item" href="calendar.html">
+			Calendar
+		</a>
+		<a class="navbar__item" href="meatballs.html">
+			Meatballs
+		</a>
+		<a class="navbar__item" href="pancakes.html">
+			Pancakes
+		</a>
+	</div>
+	<div class="recipe-list">
+		<h2 class="recipe-list__title">Featured recipes</h2>
+		<div class="recipe-list__card-wrapper">
+			<a class="recipe-card" href="#">
+				<img src="images/emiliano-vittoriosi-703094-unsplash.jpg" alt="Meatballs" class="recipe-card__image">
 				<h3 class="recipe-card__title">Meatballs</h3>
 			</a>
 			<a class="recipe-card" href="#">
-				<img src="images/buffet-chicken-cooking-5938.jpg" alt="" class="recipe-card__image">
-				<h3 class="recipe-card__title">Meatballs</h3>
+				<img src="images/blur-close-up-dairy-product-407041.jpg" alt="Pancakes" class="recipe-card__image">
+				<h3 class="recipe-card__title">Pancakes</h3>
 			</a>
 			<a class="recipe-card" href="#">
-				<img src="images/buffet-chicken-cooking-5938.jpg" alt="" class="recipe-card__image">
-				<h3 class="recipe-card__title">Meatballs</h3>
+				<img src="images/buffet-chicken-cooking-5938.jpg" alt="Chicken" class="recipe-card__image">
+				<h3 class="recipe-card__title">Chicken</h3>
 			</a>
 		</div>
 	</div>
-	<div style="height: 100px;"></div>
 </body>
 
 </html>
