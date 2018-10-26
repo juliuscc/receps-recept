@@ -270,6 +270,11 @@ input:checked ~ label.navbar__mobile-btn {
 }
 
 @media (max-width: 800px) {
+	.recipe-content {
+		width: 95%;
+		margin-left: 2.5%;
+	}
+
 	.recipe-content__body {
 		flex-direction: column;
 	}
@@ -331,6 +336,13 @@ input:checked ~ label.navbar__mobile-btn {
 	margin: 25px 0;
 	font-size: 23px;
 	width: 60%;
+}
+
+@media (max-width: 800px) {
+	.recipe-information__description {
+		font-size: 20px;
+		width: 100%;
+	}
 }
 
 /*
