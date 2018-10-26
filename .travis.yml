@@ -1,8 +1,8 @@
 deploy:
-    provider: pages
-    skip-cleanup: true
-    github-token: $GITHUB_TOKEN
-    keep-history: true
-    local-dir: 'homework-1'
-    on:
-        branch: master
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  local-dir: 'homework-1'
+  on:
+    branch: master
