@@ -33,18 +33,25 @@ h1 {
 	flex-direction: column;
 }
 
+.header--meetballs {
+	background-image: url('images/emiliano-vittoriosi-703094-unsplash.jpg');
+	background-position: center;
+}
+
 .header__title {
 	font-size: 70px;
 	color: white;
 	text-align: center;
 	text-shadow: black 2px 3px 13px;
 	padding: 0 50px;
+	white-space: nowrap;
 }
 
 @media (max-width: 600px) {
 	.header__title {
-		font-size: 30px;
+		font-size: 45px;
 		padding: 0;
+		white-space: normal;
 	}
 }
 
