@@ -1,4 +1,4 @@
-script: cp "CNAME" "homework-1/CNAME"
+# script: cp "CNAME" "homework-1/CNAME"
 
 deploy:
     provider: pages
