@@ -1,0 +1,198 @@
+* {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	background-color: antiquewhite;
+	padding: 0;
+	margin: 0;
+	font-family: 'Kaushan Script', cursive;
+}
+
+h1 {
+	font-family: 'Permanent Marker';
+}
+
+/*
+============== HEADER ==============
+*/
+
+.header {
+	margin: 0;
+	width: 100%;
+	height: 500px;
+	max-height: 100vh;
+	background-image: url('images/board-bunch-cooking-349609.jpg');
+	background-size: cover;
+	background-position: right top;
+
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-direction: column;
+}
+
+.header--meetballs {
+	background-image: url('images/emiliano-vittoriosi-703094-unsplash.jpg');
+	background-position: center;
+}
+
+.header__title {
+	font-size: 70px;
+	color: white;
+	text-align: center;
+	text-shadow: black 2px 3px 13px;
+	padding: 0 50px;
+	white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+	.header__title {
+		font-size: 45px;
+		padding: 0;
+		white-space: normal;
+	}
+}
+
+/*
+============== NAVBAR ==============
+*/
+
+.navbar {
+	font-family: 'Lato';
+	background-color: #fffdfb;
+	padding: 0 20%;
+	display: flex;
+	flex-direction: row;
+}
+
+.navbar__item {
+	font-size: 20px;
+	padding: 15px;
+	text-decoration: none;
+	display: inline-block;
+	color: #000000;
+	position: relative;
+}
+
+.navbar__item:after {
+	content: '';
+	background: #ccc;
+	position: absolute;
+
+	left: 20%;
+	bottom: 0;
+	width: 60%;
+	height: 3px;
+}
+
+.navbar__item:hover:after,
+.navbar__item--active:after {
+	background: #ff5526;
+}
+
+/* @media (max-width: 600px) {
+	.navbar--not-fixed {
+		margin: 0 8%;
+	}
+} */
+
+@media (max-width: 800px) {
+	.navbar {
+		flex-direction: column;
+		padding: 10px 8%;
+	}
+
+	.navbar__item:after {
+		bottom: 25%;
+		left: 0;
+		height: 50%;
+		width: 5px;
+	}
+
+	.navbar__item:hover:after,
+	.navbar__item--active:after {
+		background: #ff5526;
+	}
+}
+
+/*
+============== RECIPE LIST ==============
+*/
+
+.recipe-list {
+	padding: 0 20%;
+	padding-bottom: 25px;
+}
+
+.recipe-list__title {
+	font-size: 30px;
+}
+
+.recipe-list__card-wrapper {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 20px;
+}
+
+@media (max-width: 600px) {
+	.recipe-list {
+		padding: 0 8%;
+		padding-bottom: 25px;
+	}
+
+	.recipe-list__card-wrapper {
+		grid-template-columns: 1fr;
+	}
+}
+
+/*
+============== RECIPE CARD ==============
+*/
+
+.recipe-card {
+	box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 9px -4px;
+	text-decoration: none;
+	color: black;
+	border-bottom: #ff5526 5px solid;
+
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.recipe-card:hover {
+	box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 15px -4px;
+	transform: scale(1.01) translateZ(0); /* translateZ(0) forces hardware acceleration which removes blurry text */
+}
+
+.recipe-card__image {
+	width: 100%;
+	height: 400px;
+	object-fit: cover;
+}
+
+@media (min-width: 600px) and (max-width: 1200px) {
+	.recipe-card__image {
+		height: 200px;
+	}
+}
+
+.recipe-card__title {
+	font-size: 25px;
+	margin: 10px;
+	margin-top: 5px;
+}
+
+/*
+============== INFORMATION SECTION ==============
+*/
+
+.information-section {
+	width: 100%;
+	margin: 0;
+
+	padding: 25px 20%;
+}
+
+.information-section__title {
+}
