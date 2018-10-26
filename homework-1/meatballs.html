@@ -6,29 +6,91 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Receps Recept</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/solid.css" integrity="sha384-osqezT+30O6N/vsMqwW8Ch6wKlMofqueuia2H7fePy42uC05rm1G+BUPSd2iBSJL"
+	 crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/fontawesome.css" integrity="sha384-BzCy2fixOYd0HObpx3GMefNqdbA7Qjcc91RgYeDjrHTIEXqiF00jKvgQG0+zY/7I"
+	 crossorigin="anonymous">
+
 	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Permanent+Marker|Lato" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 	<div class="navbar">
-		<a class="navbar__item" href="/">
-			Home
-		</a>
-		<a class="navbar__item" href="calendar.html">
-			Calendar
-		</a>
-		<a class="navbar__item navbar__item--active" href="meatballs.html">
-			Meatballs
-		</a>
-		<a class="navbar__item" href="pancakes.html">
-			Pancakes
-		</a>
+		<input type="checkbox" id="navbar__mobile-btn">
+		<label class="navbar__mobile-btn" for="navbar__mobile-btn">Menu</label>
+		<div class="navbar__list-container">
+			<a class="navbar__item" href="/">
+				Home
+			</a>
+			<a class="navbar__item" href="calendar.html">
+				Calendar
+			</a>
+			<a class="navbar__item navbar__item--active" href="meatballs.html">
+				Meatballs
+			</a>
+			<a class="navbar__item" href="pancakes.html">
+				Pancakes
+			</a>
+		</div>
 	</div>
 	<div class="header header--meetballs">
 		<h1 class="header__title">Swedish Meatballs</h1>
 	</div>
-
+	<div class="recipe-content">
+		<div class="recipe-content__head">
+			<div class="recipe-information">
+				<span class="recipe-information__item recipe-information__item--right-divider">1 hour</span>
+				<span class="recipe-information__item">Medium</span>
+				<span class="recipe-information__item recipe-information__item--float--right">8 Servings</span>
+				<p class="recipe-information__description">
+					This is a great meal that will be very sucessful at the next potluck. It is a traditional swedish dish that is
+					served at every IKEA in the world. The legend says that the meatball originates from Turkey and was brought to
+					Sweden in the 18th century.
+				</p>
+			</div>
+		</div>
+		<div class="recipe-content__body">
+			<div class="recipe-content__section--right recipe-content__section--top-mobile">
+				<div class="ingredients-list">
+					<h2 class="ingredients-list__title">Ingredients</h2>
+					<ul class="ingredients-list__list">
+						<li class="ingredients-list__list-item">1 1/2 dl milk</li>
+						<li class="ingredients-list__list-item">5 tbsp bread crumbs</li>
+						<li class="ingredients-list__list-item">500g ground meat</li>
+						<li class="ingredients-list__list-item">1/2 yellow onion (peeled and grated)</li>
+						<li class="ingredients-list__list-item">1 egg</li>
+						<li class="ingredients-list__list-item">1 tsp salt</li>
+						<li class="ingredients-list__list-item">1 qt black pepper</li>
+						<li class="ingredients-list__list-item">1/2 tsp sugar</li>
+						<li class="ingredients-list__list-item">butter or margarine</li>
+					</ul>
+				</div>
+			</div>
+			<div class="recipe-content__section--left recipe-content__section--bottom-mobile">
+				<div class="recipe-instructions">
+					<h2 class="recipe-instructions__title">Instructions</h2>
+					<ol class="recipe-instructions__list">
+						<li class="recipe-instructions__list-item">
+							Mix milk and bread crumbs. Let swell for 10 minutes. Add ground meat, onion, egg, salt, black pepper, and sugar
+							to the
+							bread crumb mix. Work the mix.
+						</li>
+						<li class="recipe-instructions__list-item">
+							Moist the hands with cold water and form the meat balls. Fry a couple at a time in cooking oil, shake the pan at
+							regular intervals so that the meatballs roll around and keeps it's round shape.
+						</li>
+						<li class="recipe-instructions__list-item">
+							Serve the meatballs with boiled potatoes or mashed potatoes and lingonberry jam.
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- <div class="user-comment-section">
+		<h2>Comment section</h2>
+	</div> -->
 </body>
 
 </html>
