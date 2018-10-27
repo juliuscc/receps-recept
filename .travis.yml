@@ -1,4 +1,4 @@
-script: echo "hello world"
+script: cp "CNAME" "homework-1/CNAME"
 
 deploy:
     provider: pages
