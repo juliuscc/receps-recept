@@ -503,6 +503,7 @@ input:checked ~ label.navbar__mobile-btn {
 	text-align: right;
 	padding: 5px;
 	width: 100%;
+	font-size: 12px;
 }
 
 .calendar__day--disabled {
@@ -511,7 +512,7 @@ input:checked ~ label.navbar__mobile-btn {
 
 .calendar__day-image {
 	width: calc(100% - 10px);
-	height: calc(100% - 35px);
+	height: calc(100% - 30px);
 	left: 5px;
 	bottom: 5px;
 	border-radius: 5px;
