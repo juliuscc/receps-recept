@@ -1,17 +1,30 @@
 * {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	font-size: 16px;
+}
+
+div {
+	box-sizing: border-box;
 }
 
 body {
 	background-color: antiquewhite;
 	padding: 0;
 	margin: 0;
-	font-family: 'Kaushan Script', cursive;
+	font-family: 'Lato', sans-serif;
 }
 
 h1 {
 	font-family: 'Permanent Marker';
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Kaushan Script', cursive;
 }
 
 /*
@@ -35,6 +48,11 @@ h1 {
 
 .header--meetballs {
 	background-image: url('images/emiliano-vittoriosi-703094-unsplash.jpg');
+	background-position: center;
+}
+
+.header--pancakes {
+	background-image: url('images/blur-close-up-dairy-product-407041.jpg');
 	background-position: center;
 }
 
@@ -232,9 +250,6 @@ input:checked ~ label.navbar__mobile-btn {
 	padding: 25px 20%;
 }
 
-.information-section__title {
-}
-
 /*
 ============== RECIPE CONTENT ==============
 */
@@ -380,4 +395,57 @@ input:checked ~ label.navbar__mobile-btn {
 .recipe-instructions__list-item {
 	margin-bottom: 20px;
 	font-size: 18px;
+}
+
+/*
+============== USER COMMENT SECTION ==============
+*/
+
+.user-comment-section {
+	width: 80%;
+	margin-left: 10%;
+	margin-bottom: 25px;
+	padding: 30px;
+	padding-bottom: 50px;
+	padding-top: 10px;
+}
+
+.user-comment-section__title {
+	font-size: 30px;
+	margin-bottom: 0;
+}
+
+@media (max-width: 800px) {
+	.user-comment-section {
+		width: 95%;
+		margin-left: 2.5%;
+	}
+}
+
+/*
+============== USER COMMENT ==============
+*/
+
+.user-comment {
+	padding: 25px 0;
+	font-family: 'Lato';
+	font-size: 20px;
+}
+
+.user-comment + .user-comment {
+	border-top: #ccc 1px solid;
+}
+
+.user-comment__username {
+	font-weight: bold;
+	padding-right: 10px;
+}
+
+.user-comment__username:after {
+	content: ':';
+}
+
+.user-comment__comment,
+.user-comment__username {
+	font-size: 16px;
 }
