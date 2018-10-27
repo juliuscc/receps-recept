@@ -56,6 +56,11 @@ h6 {
 	background-position: center;
 }
 
+.header--calendar {
+	background: none;
+	height: initial;
+}
+
 .header__title {
 	font-size: 70px;
 	color: white;
@@ -63,8 +68,12 @@ h6 {
 	text-shadow: black 2px 3px 13px;
 	padding: 0 50px;
 }
+.header__title--dark {
+	color: black;
+	text-shadow: none;
+}
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
 	.header__title {
 		font-size: 45px;
 		padding: 0;
@@ -136,12 +145,6 @@ input:checked ~ label.navbar__mobile-btn {
 	flex-direction: row;
 }
 
-/* @media (max-width: 600px) {
-	.navbar--not-fixed {
-		margin: 0 8%;
-	}
-} */
-
 @media (max-width: 800px) {
 	.navbar {
 		padding: 10px 8%;
@@ -192,7 +195,7 @@ input:checked ~ label.navbar__mobile-btn {
 	grid-gap: 20px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
 	.recipe-list {
 		padding: 0 8%;
 		padding-bottom: 25px;
@@ -227,7 +230,7 @@ input:checked ~ label.navbar__mobile-btn {
 	object-fit: cover;
 }
 
-@media (min-width: 600px) and (max-width: 1200px) {
+@media (min-width: 800px) and (max-width: 1200px) {
 	.recipe-card__image {
 		height: 200px;
 	}
@@ -456,4 +459,69 @@ input:checked ~ label.navbar__mobile-btn {
 .user-comment__comment,
 .user-comment__username {
 	font-size: 16px;
+}
+
+/*
+============== CALENDAR SECTION ==============
+*/
+
+.calendar-section {
+	margin-bottom: 50px;
+}
+
+.calendar-section__title {
+	font-family: 'Lato';
+	text-align: center;
+	font-size: 30px;
+}
+
+/*
+============== CALENDAR ==============
+*/
+
+.calendar {
+	border-collapse: collapse;
+	background-color: white;
+	width: 70%;
+	margin-left: 15%;
+	table-layout: fixed;
+}
+
+.calendar__weekday {
+	border: 1px solid #bbb;
+}
+
+.calendar__day {
+	border: 1px solid #bbb;
+	height: 100px;
+	vertical-align: top;
+	position: relative;
+}
+
+.calendar__day-lable {
+	float: right;
+	text-align: right;
+	padding: 5px;
+	width: 100%;
+}
+
+.calendar__day--disabled {
+	color: #ccc;
+}
+
+.calendar__day-image {
+	width: calc(100% - 10px);
+	height: calc(100% - 35px);
+	left: 5px;
+	bottom: 5px;
+	border-radius: 5px;
+	object-fit: cover;
+	position: absolute;
+}
+
+@media (max-width: 800px) {
+	.calendar {
+		width: 95%;
+		margin-left: 2.5%;
+	}
 }
