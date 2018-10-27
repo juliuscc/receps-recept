@@ -267,6 +267,14 @@ input:checked ~ label.navbar__mobile-btn {
 	box-sizing: border-box;
 }
 
+.recipe-content h2,
+.recipe-content h3,
+.recipe-content h4,
+.recipe-content h5,
+.recipe-content h6 {
+	font-family: 'Lato', sans-serif;
+}
+
 .recipe-content__body {
 	display: flex;
 	flex-direction: row;
