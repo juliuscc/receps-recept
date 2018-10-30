@@ -9,64 +9,92 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 
+\usepackage[backend=bibtex, citestyle=numeric-comp, bibstyle=ieee]{biblatex}
+\addbibresource{ref.bib} % The file containing our references, in BibTeX format
+
 % Create header and footer
 \headheight 27pt
 \pagestyle{fancyplain}
 \lhead{\footnotesize{Internet Applications, ID1354}}
-\chead{\footnotesize{Name of the Report}}
+\chead{\footnotesize{Tasty Recipes with HTML and CSS}}
 \rhead{}
 \lfoot{}
 \cfoot{\thepage\ (\pageref{LastPage})}
 \rfoot{}
 
 % Create title page
-\title{Name of the Report}
+\title{Tasty Recipes with HTML and CSS}
 \subtitle{Internet Applications, ID1354}
-\author{Your Name and Email Address}
-\date{Date}
+\author{Julius Recep Colliander Celik - jcelik@kth.se}
+\date{\today}
 
 \begin{document}
 
 \maketitle
 
-\section*{Tips for Report Writing}
-\textbf{REMOVE THIS SECTION BEFORE SUBMITTING THE REPORT.}\\
-
-\noindent \textit{The target audience has exactly the same skills as the author, except they do not know anything at all about the specific program described in the report.} \\
-
-Consider the following:
-
-\begin{itemize}
-  \item \textbf{The report must be \textit{centered around the requirements}. Which are they (Introduction), how did you work to meet them (Method), what is the solution that meets them (Result), and how can you be sure they are met (Discussion). This is the IMRaD method.}
-
-  \item \textbf{The report must show that you have done the work yourself and that you have understood what you have done. Both of these goals are met by carefully explaining the source code.}
-
-  \item Is spelling and grammar correct? Is spoken language avoided?
-
-  \item Does the report have a good structure with sections, subsections and paragraphs?
-
-  \item Is the solution clearly explained? Will the reader understand the program? What would you yourself want to know if you read about the program, is that included in the report?
-
-  \item Is the solution analyzed and evaluated? Are important properties of the program explained? Should there have been more extensive evaluation?
-
-  \item Is the text clarified with images and/or other figures, and with links to the code in your Git repository? Remember that all figures (images, tables, graphs, code listings, etc) shall be numbered and have a short explaining text.
-\end{itemize}
+%\section*{Tips for Report Writing}
+%\textbf{REMOVE THIS SECTION BEFORE SUBMITTING THE REPORT.}\\
+%
+%\noindent \textit{The target audience has exactly the same skills as the author, except they do not know anything at all about the specific program described in the report.} \\
+%
+%Consider the following:
+%
+%\begin{itemize}
+%  \item \textbf{The report must be \textit{centered around the requirements}. Which are they (Introduction), how did you work to meet them (Method), what is the solution that meets them (Result), and how can you be sure they are met (Discussion). This is the IMRaD method.}
+%
+%  \item \textbf{The report must show that you have done the work yourself and that you have understood what you have done. Both of these goals are met by carefully explaining the source code.}
+%
+%  \item Is spelling and grammar correct? Is spoken language avoided?
+%
+%  \item Does the report have a good structure with sections, subsections and paragraphs?
+%
+%  \item Is the solution clearly explained? Will the reader understand the program? What would you yourself want to know if you read about the program, is that included in the report?
+%
+%  \item Is the solution analyzed and evaluated? Are important properties of the program explained? Should there have been more extensive evaluation?
+%
+%  \item Is the text clarified with images and/or other figures, and with links to the code in your Git repository? Remember that all figures (images, tables, graphs, code listings, etc) shall be numbered and have a short explaining text.
+%\end{itemize}
 
 \section{Introduction}
 
-\textbf{This section tells \textit{what} are you going to do.} \\
+A web site for sharing tasty recipes was created. The goal was to create a web site using only HTML and CSS, following halve of the heuristics of user design, as well as considering accessibility, and preferably being responsive by adapting the web site to different screen sizes. To ensure consistency a CSS reset style sheet had to be used, and to ensure good code quality all files created had to be pass the W3C validations.
 
-\noindent Explain the task and the requirements on the solution. It is very important to \textit{clearly state the requirements}. If you wrote the program together with other students, list their names and email addresses here.
+The web site created contained of four pages. One home page, two recipe pages, and one calendar page. Every page had to be accessible from any other page, which is why a navigation menu was recommended.
 
 \section{Literature Study}
 
-This section must prove that you collected sufficient knowledge before starting development, instead of just hacking away without knowing how to complete the task. State what you have read and briefly summarize what you have learned.
+The web page w3schools is a web page with extensive information about HTML, CSS and many other web technologies. The web page w3schools was used for basic CSS reference \cite{RefsnesData}. For reference of CSS Flexbox and CSS Grid the complete guides from CSS-Tricks was used \cite{Coyier,Coyiera}. 
+
+For design inspiration, the calendar is visually based on another calendar. A calendar created using the framework Semantic UI was openly shared and was the basis for creating the calendar on the Tasty Recipes web site \cite{Nijin39} . As I have been mostly fluent in HTML and CSS, for the past 4 years prior to this assignment, no other resources were necessary.
 
 \section{Method}
+This chapter is divided into two parts. The first part (Chapter \ref{method:development}) explains the tools used and the development environment. It also describes how the web site was publicly published. The second part (Chapter \ref{method:evaluation}) explains how the web page was evaluated. The web site was mostly manually evaluated, however browser compatibility and code validity is discussed in this chapter.
 
-\textbf{This section tells \textit{how} you solved the task.} \\
+\subsection{Development environment}
+\label{method:development}
 
-\noindent Explain how you worked when solving the tasks and how you evaluated that your solution met the requirements. Mention development tools and IDEs you used. \textit{Do not explain your solution and do not refer to code}, that belongs to the \textit{Result} section.
+The text editor used was Visual Studio Code. This decision was based on personal preference, as well as it being the most popular development environment \cite{Stackoverflow}. I considered using SASS with an SCSS syntax, or PostCSS as it helps with structuring projects. After consideration I choose to use only pure HTML and CSS as the project is very small and simple. To keep a good structure on my CSS I used the BEM methodology. It is a very simple naming methodology that results in very elegant code \cite{Starkov}.
+
+Of course I used a CSS reset style sheet. I used Normalize.css as I have used it before successfully. It is very lightweight and primarily aims at fixing browser bugs and inconsistent behavior, while preserving useful browser defaults. It is used by ``[...] Twitter, TweetDeck, GitHub, Soundcloud, Guardian, Medium, GOV.UK, Bootstrap, HTML5 Boilerplate, and many others'' \cite{Gallagher}.
+
+To deploy the web site I use GitHub Pages, and use CloudFlare for CDN cache and redirection so that the url \texttt{https://receps-recept.com} results in the web site hosted on GitHub Pages being received. For automatic continuous deployment I use Travis CI. For local development I used Browsersync to refresh my browser every time a file was changed. It enabled me to have the web site next to my code and not have to manually refresh the web page every time I made a change in the code.
+
+\subsection{Evaluation}
+\label{method:evaluation}
+
+To evaluate  the validity of my code I used the W3C Markup Validation Service. It catched one error where I downloaded a font with the link:\\ \small{\texttt{https://fonts.googleapis.com/css?family=Kaushan+Script|Permanent+Marker|Lato}} where the character \texttt{|} is not allowed. I changed that to \texttt{\%7C}.
+
+I tested my web site on the following browsers:
+\begin{itemize}
+	\item Google Chrome - Mac OS X
+	\item Firefox - Mac OS X
+	\item Safari - Mac OS X
+	\item Google Chrome - iOS 12
+	\item Opera Mini - iOS 12
+	\item Safari - iOS 12
+\end{itemize}
+
+This was to ensure that the web site performed consistently over multiple browsers. On the computer I tested both normal view and mobile view in Firefox. The most interesting browser on the list is Opera Mini that is a browser that lacks a large amount of modern features, and purposely ignores certain web features to save battery, internet bandwidth and perform better. It is not always required for the web site to look exactly the same on Opera Mini as it would be limiting for other users, however it is important that the website still is usable on Opera Mini. Internet Explorer and Internet Edge could not be tested as no compatible device was available. However Internet Edge is a browser that often have the latest features, despite Microsoft's history with Internet Explorer being a worse browser than the competitors.
 
 \section{Result}
 
@@ -74,13 +102,7 @@ This section must prove that you collected sufficient knowledge before starting 
 
 \noindent Present the solution. Explain your code and prove that it meets the requirements. It is very important to \textit{state each requirement that is met} and explain \textit{how you met it}. It is also important to include links to your code in your Git repository, user interface screen-shots, see Figure \ref{fig:ui}, and other figures to illustrate your reasoning. Also remember that these figures must be referenced in the text.
 
-%\begin{figure}[h!]
-%  \begin{center}
-%    \includegraphics[scale=0.3]{ui.jpg}
-%    \caption{A sample user interface screenshot to illustrate caption (this text), numbering and reference in text.}
-%    \label{fig:ui}
-%  \end{center}
-%\end{figure}
+
 
 \section{Discussion}
 
@@ -91,5 +113,7 @@ This section must prove that you collected sufficient knowledge before starting 
 \section{Comments About the Course}
 
 Any comment(s) related to this course offering or to coming offerings is much appreciated. \textit{Please also tell approximately how much time you spent on the assignment}, including lectures and exercises. This is of great help for course evaluation.
+
+\printbibliography[heading=bibintoc]
 
 \end{document}

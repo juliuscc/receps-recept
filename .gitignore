@@ -80,3 +80,7 @@ reports/**/*.aux
 reports/**/*.log
 reports/**/*.pdf
 reports/**/*.gz
+reports/**/*blx.bib
+reports/**/*.bbl
+reports/**/*.blg
+reports/**/*.run.xml
