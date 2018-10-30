@@ -74,3 +74,9 @@ typings/
 
 # Serverless directories
 .serverless
+
+# Latex
+reports/*.aux
+reports/*.log
+reports/*.pdf
+reports/*.gz
