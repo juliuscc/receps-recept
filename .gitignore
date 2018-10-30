@@ -76,7 +76,7 @@ typings/
 .serverless
 
 # Latex
-reports/*.aux
-reports/*.log
-reports/*.pdf
-reports/*.gz
+reports/**/*.aux
+reports/**/*.log
+reports/**/*.pdf
+reports/**/*.gz
