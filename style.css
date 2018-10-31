@@ -320,7 +320,7 @@ input:checked ~ label.navbar__mobile-btn {
 	}
 }
 
-@media (max-width: 800px) and (max-height: 320px) {
+@media (max-width: 800px) and (max-height: 450px) {
 	.recipe-content {
 		margin-top: 25px;
 	}
