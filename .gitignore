@@ -84,3 +84,4 @@ reports/**/*blx.bib
 reports/**/*.bbl
 reports/**/*.blg
 reports/**/*.run.xml
+reports/**/*.out
