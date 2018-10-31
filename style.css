@@ -33,7 +33,7 @@ h6 {
 	margin: 0;
 	width: 100%;
 	height: 600px;
-	max-height: 100vh;
+	max-height: calc(100vh - 63px);
 	background-image: url('images/board-bunch-cooking-349609.jpg');
 	background-size: cover;
 	background-position: right top;
@@ -42,6 +42,10 @@ h6 {
 	justify-content: center;
 	align-content: center;
 	flex-direction: column;
+}
+
+.header--extra-tall {
+	max-height: 100vh;
 }
 
 .header--meetballs {
@@ -313,6 +317,12 @@ input:checked ~ label.navbar__mobile-btn {
 
 	.recipe-content__section--bottom-mobile {
 		order: 1;
+	}
+}
+
+@media (max-width: 800px) and (max-height: 320px) {
+	.recipe-content {
+		margin-top: 25px;
 	}
 }
 
