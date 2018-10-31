@@ -85,9 +85,7 @@ To deploy the web site I use GitHub Pages, and use CloudFlare for CDN cache and 
 \subsection{Evaluation}
 \label{method:evaluation}
 
-To evaluate  the validity of my code I used the W3C Markup Validation Service. It catched one error where I downloaded a font with the link:\\ \small{\texttt{https://fonts.googleapis.com/css?family=Kaushan+Script|Permanent+Marker|Lato}} where the character \texttt{|} is not allowed. I changed that to \texttt{\%7C}.
-
-I tested my web site on the following browsers:
+To evaluate  the validity of my code I used the W3C Markup Validation Service. I tested my web site on the following browsers:
 \begin{itemize}
 	\item Google Chrome - Mac OS X
 	\item Firefox - Mac OS X
@@ -100,12 +98,6 @@ I tested my web site on the following browsers:
 This was to ensure that the web site performed consistently over multiple browsers. On the computer I tested both normal view and mobile view in Firefox. The most interesting browser on the list is Opera Mini that is a browser that lacks a large amount of modern features, and purposely ignores certain web features to save battery, internet bandwidth and perform better. It is not always required for the web site to look exactly the same on Opera Mini as it would be limiting for other users, however it is important that the website still is usable on Opera Mini. Internet Explorer and Internet Edge could not be tested as no compatible device was available. However Internet Edge is a browser that often have the latest features, despite Microsoft's history with Internet Explorer being a worse browser than the competitors.
 
 \section{Result (and html head)}
-
-
-\textbf{This section explains \textit{the result} of what you did.} \\
-
-\noindent Present the solution. Explain your code and prove that it meets the requirements. It is very important to \textit{state each requirement that is met} and explain \textit{how you met it}. It is also important to include links to your code in your Git repository, user interface screen-shots, see Figure \ref{fig:ui}, and other figures to illustrate your reasoning. Also remember that these figures must be referenced in the text.
-
 
 My git repository is found in the following link: \newline\href{https://github.com/juliuscc/kth-id1354/tree/master/homework-1}{https://github.com/juliuscc/kth-id1354/tree/master/homework-1}. The project uses the following file structure:
 
@@ -132,7 +124,7 @@ It contains four HTML-files which each correspond a page, two CSS style sheets w
 The HTML pages and the style sheet were all submitted to the W3C Markup Validation Service. All the four HTML-files and the CSS style sheet showed no errors or warnings. A CSS reset style sheet was used. Normalize.js was the reset style sheet used. It was added in the head before any other style sheets. All pages looked the same on all tested browsers.
 
 \subsection{CSS}
-The CSS is written with BEM methodology to make it easier to work with. For horizontal alignment i use mostly percentages to ensure that the web site always looks nice. I also use media queries to change the style based on screen size. Following is a small example of two block classes and their descendant elements and the modifier classes. It also shows that I use CSS Grid, box-shadows, transitions and media queries.
+The CSS is written with BEM methodology to make it easier to work with. Here is the link to the file: \href{https://github.com/juliuscc/kth-id1354/blob/master/homework-1/style.css}{https://github.com/juliuscc/kth-id1354/blob/master/homework-1/style.css}. For horizontal alignment i use mostly percentages to ensure that the web site always looks nice. I also use media queries to change the style based on screen size. Following is a small example of two block classes and their descendant elements and the modifier classes. It also shows that I use CSS Grid, box-shadows, transitions and media queries.
 
 \begin{lstlisting}
 /*
@@ -205,7 +197,7 @@ The CSS is written with BEM methodology to make it easier to work with. For hori
 
 \subsection{Index Page (design)}
 
-The index page is shown in figure \ref{fig:index-page}. If the screen is smaller than 800px in width the web page changes design to the one shown in figure \ref{fig:index-page-mobile}. The primary changes are smaller margins, the grid has fewer columns, and the navigation bar becomes a collapsible and vertical navigation bar. Figure \ref{fig:mobile-nav} shows the navigation bar in the expanded state. It uses a hidden checkbox to trigger the state change. The text \textit{Menu} is a label that triggers a change in the checkboxes state.
+The index page is shown in figure \ref{fig:index-page}. The link to the file is: \href{https://github.com/juliuscc/kth-id1354/blob/master/homework-1/index.html}{https://github.com/juliuscc/kth-id1354/blob/master/homework-1/index.html}. If the screen is smaller than 800px in width the web page changes design to the one shown in figure \ref{fig:index-page-mobile}. The primary changes are smaller margins, the grid has fewer columns, and the navigation bar becomes a collapsible and vertical navigation bar. Figure \ref{fig:mobile-nav} shows the navigation bar in the expanded state. It uses a hidden checkbox to trigger the state change. The text \textit{Menu} is a label that triggers a change in the checkboxes state.
 
 \begin{figure}
 	\centering
@@ -230,7 +222,7 @@ The index page is shown in figure \ref{fig:index-page}. If the screen is smaller
 
 \subsection{Calendar Page (design)}
 
-As mentioned the calendar in the calendar page was inspired from another one. It was inspired on the design of a calendar created with Semantic UI. A comparison of the two is shown in figure \ref{fig:calendar-comparison}.
+As mentioned the calendar in the calendar page was inspired from another one. It was inspired on the design of a calendar created with Semantic UI. A comparison of the two is shown in figure \ref{fig:calendar-comparison}. No code was copied from the original inspiration.
 
 \begin{figure}
 	\centering
@@ -248,7 +240,7 @@ As mentioned the calendar in the calendar page was inspired from another one. It
 
 \subsection{Heuristics of user design}
 
-Five of the ten basic heuristics for user interface design was considered.
+Five of the ten basic heuristics for user interface design were considered.
 
 \subsubsection{Visibility of system status}
 The web page is mostly stateless. One of two states is the state of the navigation bar when viewing the web page with a mobile device, or a device with a very small screen. The interaction is instant so the state is always visible. The state of the navigation bar can be collapsed or expanded, which is indicated with an icon. Another state is the state of which page is open. It is indicated with a small red indicator in the navigation bar that underlines the active page.
@@ -274,7 +266,7 @@ The navigation menu adapts after screen size. When the screen is smaller less in
 There are no irrelevant units of information. The design is simple. Font sizes are used to build information hierarchies to highlight important information for quick information access.
 
 \subsubsection{Browser Consistency}
-The web page was tested on multiple browsers and differences were not distinguishable without placing the browsers next to each other. The page looked quite consistent even on the Kindle Paperwhite Experimental browser. Even if the browser had no support for CSS Flexbox or CSS Grid, the parts that used those technologies failed gracefully, and the browsing experience was not severally altered.
+The web page was tested on multiple browsers and differences were not distinguishable without placing the browsers next to each other. The page looked quite consistent even on the Kindle Paperwhite Experimental browser. Even if the browser had no support for CSS Flexbox or CSS Grid, the parts that used those technologies failed gracefully, and the browsing experience was not severally altered. The page looked surprisingly very good on Opera Mini, which is a browser that lacks very much HTML and CSS functionality.
 
 I did have problems with text-shadow rendering consistently, however I do not think it is possible to get that to look exactly the same, and I do not believe it is important. Figure \ref{fig:browser-comparison} shows a comparison of the pancake page on the browsers Firefox and Chrome. When I test my designs on multiple browsers, the important part is not that the web page looks exactly the same on all browsers, but it is that the web page looks good on all browsers. Sometimes I use newer features, even though I avoid them if they impact to many users, however I always ensure that the web page is usable looks good even for users who can not view the web page with all necessary features enabled.
 
