@@ -62,7 +62,7 @@
 
 A web site for sharing tasty recipes was created. The goal was to create a web site using only HTML and CSS, following halve of the heuristics of user design, as well as considering accessibility, and preferably being responsive by adapting the web site to different screen sizes. To ensure consistency a CSS reset style sheet had to be used, and to ensure good code quality all files created had to be pass the W3C validations.
 
-The web site created contained of four pages. One home page, two recipe pages, and one calendar page. Every page had to be accessible from any other page, which is why a navigation menu was recommended. To view the website it is publicly available on the link \href{https://github.com/juliuscc/kth-id1354/tree/master/homework-1}{https://github.com/juliuscc/kth-id1354/tree/master/homework-1}.
+The web site created contained of four pages. One home page, two recipe pages, and one calendar page. Every page had to be accessible from any other page, which is why a navigation menu was recommended. To view the website it is publicly available on the link \href{https://github.com/juliuscc/kth-id1354/tree/master/homework-1}{https://github.com/juliuscc/kth-id1354/tree/master/homework-1}. The website is also deployed on the url \href{https://receps-recept.com}{receps-recept.com}, which is a pun based on the similarity between my middle name (Recep) and the Swedish word for recipe (recept).
 
 \section{Literature Study}
 
@@ -101,12 +101,13 @@ This was to ensure that the web site performed consistently over multiple browse
 
 \section{Result (and html head)}
 
+
 \textbf{This section explains \textit{the result} of what you did.} \\
 
 \noindent Present the solution. Explain your code and prove that it meets the requirements. It is very important to \textit{state each requirement that is met} and explain \textit{how you met it}. It is also important to include links to your code in your Git repository, user interface screen-shots, see Figure \ref{fig:ui}, and other figures to illustrate your reasoning. Also remember that these figures must be referenced in the text.
 
-\subsection{Project Structure}
-The project uses the following file structure:
+
+My git repository is found in the following link: \newline\href{https://github.com/juliuscc/kth-id1354/tree/master/homework-1}{https://github.com/juliuscc/kth-id1354/tree/master/homework-1}. The project uses the following file structure:
 
 \begin{verbatim}
 |---- icons
@@ -207,16 +208,18 @@ The CSS is written with BEM methodology to make it easier to work with. For hori
 The index page is shown in figure \ref{fig:index-page}. If the screen is smaller than 800px in width the web page changes design to the one shown in figure \ref{fig:index-page-mobile}. The primary changes are smaller margins, the grid has fewer columns, and the navigation bar becomes a collapsible and vertical navigation bar. Figure \ref{fig:mobile-nav} shows the navigation bar in the expanded state. It uses a hidden checkbox to trigger the state change. The text \textit{Menu} is a label that triggers a change in the checkboxes state.
 
 \begin{figure}
-	\includegraphics[width=\linewidth]{images/screenshot-index.jpg}
-	  \caption{Index page (Desktop)}
-	\label{fig:index-page}
-\end{figure}
-
-\begin{figure}
 	\centering
-	\includegraphics[height=\dimexpr\textheight-3\baselineskip-\parskip-.2em-\abovecaptionskip-\belowcaptionskip\relax]{images/screenshot-index-mobile.png}
-	\caption{Index page (mobile)}
-	\label{fig:index-page-mobile}
+	\begin{subfigure}[b]{0.7\linewidth}
+		\includegraphics[width=\linewidth]{images/screenshot-index.jpg}
+		\caption{Index page (Desktop)}
+		\label{fig:index-page}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.2\linewidth}
+		\includegraphics[width=\linewidth]{images/screenshot-index-mobile.png}
+		\caption{Index page (Mobile)}
+		\label{fig:index-page-mobile}
+	\end{subfigure}
+	\caption{Index page on different screen sizes}
 \end{figure}
 
 \begin{figure}
@@ -248,41 +251,79 @@ As mentioned the calendar in the calendar page was inspired from another one. It
 Five of the ten basic heuristics for user interface design was considered.
 
 \subsubsection{Visibility of system status}
-The web page is mostly stateless. The only state is the state of the navigation bar when viewing the web page with a mobile device, or a device with a very small screen. The interaction is instant so the state is always visible. The state of the navigation bar can be collapsed or expanded, which is indicated with an icon.
+The web page is mostly stateless. One of two states is the state of the navigation bar when viewing the web page with a mobile device, or a device with a very small screen. The interaction is instant so the state is always visible. The state of the navigation bar can be collapsed or expanded, which is indicated with an icon. Another state is the state of which page is open. It is indicated with a small red indicator in the navigation bar that underlines the active page.
 
 \subsubsection{Match between system and the real world}
 All of the user visible text is adapted to the users. All of the text has been proofread.
 
 \subsubsection{Consistency and standards}
+The design is simple and mostly consistent. Three fonts are used and they are always used on the same place. There is one font used only for the main header on every page. There is another font that is used for secondary headers that are not directly placed inside another element.
 
-% 4. Consistency and standards.
-% Navbarens position
-% Navbaren ser dock likadan ut på varje sida. Det finns liknande element på mobil och desktop.
-% Bara tre fonts används och de används alltid till samma sak
+The position of the navigation bar is on the most top of the web page on every page except for one. On the index page it is not on the top of the page, however that is justified with the index page having a unique and inviting design. The design of the navigation bar is exactly the same on every page though.
 
-% 6.  Recognition rather than recall.
-% Alla användarinteraktioner är tydliga. Man måste inte komma ihåg något för att hitta en sida man tidigare besökte då de alltid är lätta att hitta. Ingridienser, instruktioner och kommentarer är samlade på samma ställe.
-% Bilder hjälper användare hitta rätt på första-sidan
-% Bilder används i kalendern
+The design of the navigation bar keeps a consistent design profile. Even though the design and layout is different on different screen sizes, there are similar visual elements that are presented. The red line that indicates what page is active is presented both on mobile and desktop screen sizes.
 
-% 8. Aesthetic and minimalist design.
-% Menyn är collapsible när skärmen är mindre och informationsdensiteten är lägre, vilket leder till att varje elements viktighetsgrad måste värderas högre.
-% Det finns inga överdrivna funktioner. Designen är simpel
+\subsubsection{Recognition rather than recall}
+All of the user interactions are clear. Users do not have to remember information to revisit a page they previously visited, as all pages are always easy to find. Ingredients, recipe instructions and comments are all collected on the same place.
 
-\subsection{Responsiveness}
+Images help users understand context. Images help users understand the recipe links on the first page. Images are also used in the calendar to clearly show which recipes are relevant for each day.
+
+\subsubsection{Aesthetic and minimalist design}
+The navigation menu adapts after screen size. When the screen is smaller less information can be presented on the screen. Therefore every piece of information is more valuable. That is why the navigation bar is fully visible on larger screens while being collapsible on smaller screens.
+
+There are no irrelevant units of information. The design is simple. Font sizes are used to build information hierarchies to highlight important information for quick information access.
+
+\subsubsection{Browser Consistency}
+The web page was tested on multiple browsers and differences were not distinguishable without placing the browsers next to each other. The page looked quite consistent even on the Kindle Paperwhite Experimental browser. Even if the browser had no support for CSS Flexbox or CSS Grid, the parts that used those technologies failed gracefully, and the browsing experience was not severally altered.
+
+I did have problems with text-shadow rendering consistently, however I do not think it is possible to get that to look exactly the same, and I do not believe it is important. Figure \ref{fig:browser-comparison} shows a comparison of the pancake page on the browsers Firefox and Chrome. When I test my designs on multiple browsers, the important part is not that the web page looks exactly the same on all browsers, but it is that the web page looks good on all browsers. Sometimes I use newer features, even though I avoid them if they impact to many users, however I always ensure that the web page is usable looks good even for users who can not view the web page with all necessary features enabled.
+
+\begin{figure}
+	\centering
+	\begin{subfigure}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{images/screen-shot-firefox.jpg}
+		\caption{Pancake page in Firefox}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{images/screen-shot-chrome.png}
+		\caption{Receps Recept - Calendar}
+	\end{subfigure}
+	\caption{Pancake page in Chrome}
+	\label{fig:browser-comparison}
+\end{figure}
 
 \subsection{Accessibility}
 
+There was an alt attribute for every image, ensuring that there was always a text alternative. The web page did not rely on color in any meaningful way, except for minor indicators on the navigation bar. The web page was viewed on a Amazon Kindle Paperwhite, that has a very poor screen that can not show colors. The web page was considered fully usable.
+
+All HTML and CSS was used properly. I did not use tables for layout, and I used tables for presenting tabular data. I did use the correct \texttt{<h1> - <h6>} tags to create a structural hierarchy. I did use the \texttt{<header>} and the \texttt{<nav>} tag to indicate header and navigation bar. The page is fully usable without any CSS, and the ordering of items is correct.
+
+There was clear navigation mechanisms where a user could clearly navigate from any page to any other page. Every link contained meaningful markup, so that they could be understood without further context.
 
 \section{Discussion}
 
-\textbf{This section \textit{analysis} the result presented in the previous section.} \\
+The mandatory requirements where:
+\begin{enumerate}
+	\item Create a website using HTML and CSS, ensure that all files pass the W3C Validation, use a reset CSS, and explain important parts of the code.
+	\item Consider five of the ten basic heuristics for user interface design.
+	\item Ensure browser consistency.
+\end{enumerate}
 
-\noindent Summarize the requirements and \textit{clearly state which of them you have met}. What lessons have you learned and what problems did you face? How were the problems solved? Should you have done something differently?
+The optional requirements where:
+\begin{enumerate}
+	\item The web page is responsive, adapting to multiple screen sizes and aspect ratios.
+	\item The web site shall follow the four accessibility guidelines given.
+\end{enumerate}
+
+
+\noindent
+I have met every requirement. I have not learned much during this assignment as I have been fluent in HTML and CSS for many years. I did however get an opportunity to properly try BEM, which I have only done a little bit before. I really like BEM and will definitively use it again. My biggest problem with the website is that the file sizes on the images are very large. It does impact load time which I would fix if this website would go into production.
 
 \section{Comments About the Course}
 
-Any comment(s) related to this course offering or to coming offerings is much appreciated. \textit{Please also tell approximately how much time you spent on the assignment}, including lectures and exercises. This is of great help for course evaluation.
+I really like that feedback is collected often during the course. It makes me as a student feel appreciated, and it makes me more invested in the course. I like the assignemnts and the lectures. The course website is very clear and structured, as the rest of the course also is. It really helps us when everything is clear from the beginning. The only thing I could complain about now is that all assignments are not available yet. As the slides are available one could study in advance and it could be possible to want to start with the assignments early.
+
+It took me about a day to create the website, and about one day to write the report.
 
 \printbibliography[heading=bibintoc]
 
