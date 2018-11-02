@@ -9,24 +9,10 @@
 </head>
 
 <body>
-	<nav class="navbar">
-		<input type="checkbox" id="navbar__mobile-btn">
-		<label class="navbar__mobile-btn" for="navbar__mobile-btn">Menu</label>
-		<div class="navbar__list-container">
-			<a class="navbar__item" href="/">
-				Home
-			</a>
-			<a class="navbar__item" href="calendar.php">
-				Calendar
-			</a>
-			<a class="navbar__item navbar__item--active" href="meatballs.php">
-				Meatballs
-			</a>
-			<a class="navbar__item" href="pancakes.php">
-				Pancakes
-			</a>
-		</div>
-	</nav>
+<?php
+    include("components/navbar.php");
+    write_navbar(2, "");
+?>
 	<header class="header header--meetballs">
 		<h1 class="header__title">Swedish Meatballs</h1>
 	</header>

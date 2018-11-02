@@ -112,11 +112,11 @@ h6 {
 */
 
 .button {
-	border: 3px solid #ff5526;
+	border: 3px solid #308c2e;
 	border-radius: 10px;
 	cursor: pointer;
 	background: none;
-	color: #ff5526;
+	color: #308c2e;
 	height: 40px;
 	padding: 0 15px;
 	transition: color 0.2s, background-color 0.2s;
@@ -133,7 +133,7 @@ button::-moz-focus-inner {
 
 .button:hover {
 	color: white;
-	background: #ff5526;
+	background: #308c2e;
 }
 
 .button:active {
@@ -229,7 +229,7 @@ input:checked ~ label.navbar__mobile-btn {
 }
 
 @media (max-width: 870px) {
-	.navbar__item {
+	.navbar--tighter .navbar__item {
 		padding: 10px;
 	}
 }
@@ -664,6 +664,16 @@ input:checked ~ label.navbar__mobile-btn {
 .auth-form__input:focus {
 	box-shadow: inset rgba(38, 140, 255, 0.5) 0px 0px 5px 0px;
 	border-color: rgba(38, 140, 255, 0.5);
+}
+
+.auth-form__error-text {
+	background: rgba(255, 85, 38, 0.3);
+	padding: 15px;
+	border-radius: 10px;
+	border: 1px solid #ff5526;
+	margin-bottom: 20px;
+	margin-top: -10px;
+	color: #a53112;
 }
 
 @media (max-width: 800px) {
