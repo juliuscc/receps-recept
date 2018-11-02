@@ -124,76 +124,11 @@ It contains four HTML-files which each correspond a page, two CSS style sheets w
 The HTML pages and the style sheet were all submitted to the W3C Markup Validation Service. All the four HTML-files and the CSS style sheet showed no errors or warnings. A CSS reset style sheet was used. Normalize.js was the reset style sheet used. It was added in the head before any other style sheets. All pages looked the same on all tested browsers.
 
 \subsection{CSS}
-The CSS is written with BEM methodology to make it easier to work with. Here is the link to the file: \href{https://github.com/juliuscc/kth-id1354/blob/master/homework-1/style.css}{https://github.com/juliuscc/kth-id1354/blob/master/homework-1/style.css}. For horizontal alignment i use mostly percentages to ensure that the web site always looks nice. I also use media queries to change the style based on screen size. Following is a small example of two block classes and their descendant elements and the modifier classes. It also shows that I use CSS Grid, box-shadows, transitions and media queries.
+The CSS is written with BEM methodology to make it easier to work with. Here is the link to the file: \href{https://github.com/juliuscc/kth-id1354/blob/master/homework-1/style.css}{https://github.com/juliuscc/kth-id1354/blob/master/homework-1/style.css}. For horizontal alignment i use mostly percentages to ensure that the web site always looks nice. I also use media queries to change the style based on screen size.
 
-\begin{lstlisting}
-/*
-============== RECIPE LIST ==============
-*/
+Notice row \href{https://github.com/juliuscc/kth-id1354/blob/090d3fcab0dbe83d8e9b82e8ad858ea1843d1ffe/homework-1/style.css#L204}{204} of the file where I use a media query. The media query decides that if the screen width is smaller than 800px the margins get smaller and the two-column grid becomes a one-column grid. This was done with CSS Grid.
 
-.recipe-list {
-	padding: 0 20%;
-	padding-bottom: 25px;
-}
-
-.recipe-list__title {
-	font-size: 30px;
-}
-
-.recipe-list__card-wrapper {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-gap: 20px;
-}
-
-@media (max-width: 800px) {
-	.recipe-list {
-		padding: 0 8%;
-		padding-bottom: 25px;
-	}
-	
-	.recipe-list__card-wrapper {
-		grid-template-columns: 1fr;
-	}
-}
-
-/*
-============== RECIPE CARD ==============
-*/
-
-.recipe-card {
-	box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 9px -4px;
-	text-decoration: none;
-	color: black;
-	border-bottom: #ff5526 5px solid;
-	
-	transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.recipe-card:hover {
-	box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 15px -4px;
-	/* translateZ(0) forces hardware acceleration */
-	transform: scale(1.01) translateZ(0);
-}
-
-.recipe-card__image {
-	width: 100%;
-	height: 400px;
-	object-fit: cover;
-}
-
-@media (min-width: 800px) and (max-width: 1200px) {
-	.recipe-card__image {
-		height: 200px;
-	}
-}
-
-.recipe-card__title {
-	font-size: 25px;
-	margin: 10px;
-	margin-top: 5px;
-}
-\end{lstlisting}
+On row \href{https://github.com/juliuscc/kth-id1354/blob/090d3fcab0dbe83d8e9b82e8ad858ea1843d1ffe/homework-1/style.css#L225}{225} i specify a transition that is relevant for when a user hovers over a recipe-card. When a user hovers over a recipe-card the block that starts on row \href{https://github.com/juliuscc/kth-id1354/blob/090d3fcab0dbe83d8e9b82e8ad858ea1843d1ffe/homework-1/style.css#L228}{228} specifies that the box-shadow becomes more dominant, as well as using a transform to enlarge the card, rendering the effect of the card hovering above the other cards.
 
 \subsection{Index Page (design)}
 
@@ -309,7 +244,7 @@ The optional requirements where:
 
 
 \noindent
-I have met every requirement. I have not learned much during this assignment as I have been fluent in HTML and CSS for many years. I did however get an opportunity to properly try BEM, which I have only done a little bit before. I really like BEM and will definitively use it again. My biggest problem with the website is that the file sizes on the images are very large. It does impact load time which I would fix if this website would go into production.
+I have met every requirement. I did get an opportunity to properly try BEM, which I have only done a little bit before. This is probably my greatest lesson from this assignment. I really like BEM and will definitively use it again. My biggest problem with the website is that the file sizes on the images are very large. It does impact load time which I would fix if this website would go into production.
 
 \section{Comments About the Course}
 
