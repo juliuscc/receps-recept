@@ -1,79 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
 <?php
-$error = "";
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-include("config.php");
-session_start();
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // username and password sent from form
-
-    $myusername = $_POST['username'];
-    $mypassword = $_POST['password'];
-
-    $query = "SELECT * FROM users WHERE username = '$myusername' and password = '$mypassword'";
-
-    $result = mysqli_query($db, $query) or die('Error querying database.');
-    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-
-    $count = mysqli_num_rows($result);
-
-    // If result matched $myusername and $mypassword, table row must be 1 row
-
-    if ($count == 1) {
-        $_SESSION['login_user'] = $myusername;
-        header("location: index.php");
-    } else {
-        $error = "Your Login Name or Password is invalid";
-    }
-}
+    include("components/head.php");
+    write_header("Log in | Receps Recept");
 ?>
-<html>
+</head>
 
-	<head>
-		<title>Login Page</title>
-
-		<style type = "text/css">
-			body {
-				font-family:Arial, Helvetica, sans-serif;
-				font-size:14px;
-			}
-			label {
-				font-weight:bold;
-				width:100px;
-				font-size:14px;
-			}
-			.box {
-				border:#666666 solid 1px;
-			}
-		</style>
-
-	</head>
-
-	<body bgcolor = "#FFFFFF">
-
-		<div align = "center">
-			<div style = "width:300px; border: solid 1px #333333; " align = "left">
-				<div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Login</b></div>
-
-					<div style = "margin:30px">
-
-					<form action = "login.php" method = "post">
-						<label>UserName  :</label><input type = "text" name = "username" class = "box" required /><br /><br />
-						<label>Password  :</label><input type = "password" name = "password" class = "box" required /><br/><br />
-						<input type = "submit" value = " Submit "/><br />
-					</form>
-
-					<div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
-
-				</div>
-
-			</div>
-
+<body>
+	<nav class="navbar">
+		<input type="checkbox" id="navbar__mobile-btn">
+		<label class="navbar__mobile-btn" for="navbar__mobile-btn">Menu</label>
+		<div class="navbar__list-container">
+			<a class="navbar__item" href="/">
+				Home
+			</a>
+			<a class="navbar__item" href="calendar.php">
+				Calendar
+			</a>
+			<a class="navbar__item" href="meatballs.php">
+				Meatballs
+			</a>
+			<a class="navbar__item" href="pancakes.php">
+				Pancakes
+			</a>
+			<a class="button button--place-right button--stretch-mobile navbar__item--center-vertically button--mobile-smaller" href="login.php">Log in</a>
 		</div>
+	</nav>
+	<header class="header header--simple">
+		<h1 class="header__title header__title--dark">Log in</h1>
+	</header>
+	<div class="container">
+		<form action="login.php" method="post" class="auth-form">
+			<p class="auth-form__text">Log in to Receps Recept or <a href="register.php">create an account</a></p>
+			<label class="auth-form__label" for="username">Username:</label>
+			<input class="auth-form__input" type="text" id="username" name="username" required>
+			<label class="auth-form__label" for="password">Password:</label>
+			<input class="auth-form__input" type="password" id="password" name="password" required>
+			<button class="button button--place-right" type="submit">Log in</button>
+		</form>
+	</div>
+</body>
 
-	</body>
 </html>
