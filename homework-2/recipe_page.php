@@ -11,9 +11,11 @@ $recipe = $cookbook->recipe[$recipe_index];
 include("config.php");
 session_start();
 
-$current_user = $_SESSION["active_user"] or "";
+$current_user = $_SESSION["active_user"];
 
-// echo "Hello" . $current_user;
+$query = "SELECT * FROM comments WHERE recipe = '$recipe->title'";
+    
+$result = mysqli_query($db, $query) or die('Oops something broke! Please try again at a later time.');
 
 ?>
 <!DOCTYPE html>
@@ -73,18 +75,37 @@ $current_user = $_SESSION["active_user"] or "";
 	<div class="user-comment-section">
 		<h2 class="user-comment-section__title">Comments</h2>
 		<div class="user-comment-section__container">
-			<div class="user-comment">
-				<div class="user-comment__username">Julius</div>
-				<div class="user-comment__comment">My children made these for me and I was happy!</div>
+		<?php if (isset($current_user)) {
+                            ?>
+		<form action="save_user_comment.php" method="post" class="user-comment-form">
+			<input type="hidden" name="username" value="<?php echo $current_user; ?>" required />
+			<input type="hidden" name="recipe" value="<?php echo $recipe->title; ?>" required />
+			<input type="hidden" name="recipe_index" value="<?php echo $recipe_index; ?>" required />
+				<label class="auth-form__label" for="comment">Write a comment:</label>
+			<div class="user-comment-form__wrapper">
+				<textarea type="text" name="comment" id="comment" class="user-comment-form__comment-input" required></textarea>
+				<button type="submit" class="button">Submit comment</button>
 			</div>
-			<div class="user-comment">
-				<div class="user-comment__username">Sara</div>
-				<div class="user-comment__comment">They were a bit dry. I added some syrup to add flavour.</div>
-			</div>
-			<div class="user-comment">
-				<div class="user-comment__username">Oskar</div>
-				<div class="user-comment__comment">My grandfather always used to make these for me! &lt;3</div>
-			</div>
+		</form>
+		<?php
+                        }?>
+		<?php
+            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                echo '<form class="user-comment" method="post" action="delete_user_comment.php">';
+                echo '<input type="hidden" name="id" value="'. $row["id"] . '" required />';
+                echo '<input type="hidden" name="recipe_index" value="'. $recipe_index . '" required />';
+                echo '<div class="user-comment__wrapper">';
+                echo '<div class="user-comment__username">' . $row["username"] . '</div>';
+                echo '<div class="user-comment__comment">' . $row["comment"] . '</div>';
+                echo '</div>';
+                if ($current_user === $row["username"]) {
+                    echo '<button type="submit" class="button button--danger">Delete comment</button>';
+                } else {
+                    echo '<button type="submit" style="visibility:hidden" class="button button--danger">Delete comment</button>';
+                }
+                echo '</form>';
+            }
+        ?>
 		</div>
 	</div>
 </body>
