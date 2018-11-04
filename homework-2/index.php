@@ -24,13 +24,15 @@ $cookbook = simplexml_load_file("resources/cookbook.xml");
 		<h2 class="recipe-list__title">Featured recipes</h2>
 		<div class="recipe-list__card-wrapper">
 			<?php
-                foreach ($cookbook->recipe as $index=>$recipe) {
+                $index = 0;
+                foreach ($cookbook->recipe as $recipe) {
                     echo <<<EOD
 <a class="recipe-card" href="recipe_page.php?recipe_index=$index">
 <img src="$recipe->imageurl" alt="$recipe->title" class="recipe-card__image">
 <h3 class="recipe-card__title">$recipe->title</h3>
 </a>
 EOD;
+                    $index++;
                 }
             ?>
 		</div>

@@ -1,5 +1,4 @@
 <?php
-
 $recipe_index = intval($_GET["recipe_index"]);
 
 if (!isset($recipe_index)) {
@@ -8,6 +7,13 @@ if (!isset($recipe_index)) {
 
 $cookbook = simplexml_load_file("resources/cookbook.xml");
 $recipe = $cookbook->recipe[$recipe_index];
+
+include("config.php");
+session_start();
+
+$current_user = $_SESSION["active_user"] or "";
+
+// echo "Hello" . $current_user;
 
 ?>
 <!DOCTYPE html>
@@ -23,7 +29,7 @@ $recipe = $cookbook->recipe[$recipe_index];
 <body>
 <?php
     include("components/navbar.php");
-    write_navbar(recipe_index + 3, "");
+    write_navbar($recipe_index + 2, "");
 ?>
 	<header class="header" style="background-image: url(<?php echo $recipe->imageurl?>)">
 		<h1 class="header__title"><?php echo $recipe->title ?></h1>
