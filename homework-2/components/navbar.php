@@ -15,10 +15,10 @@ function write_navbar($active_index, $extra_class_string = "", $extra_button_str
 			<a class="navbar__item <?php if ($active_index === 1) { echo "navbar__item--active"; } ?>" href="calendar.php">
 				Calendar
 			</a>
-			<a class="navbar__item <?php if ($active_index === 2) { echo "navbar__item--active"; } ?>" href="meatballs.php">
+			<a class="navbar__item <?php if ($active_index === 2) { echo "navbar__item--active"; } ?>" href="recipe_page.php?recipe_index=0">
 				Meatballs
 			</a>
-			<a class="navbar__item <?php if ($active_index === 3) { echo "navbar__item--active"; } ?>" href="pancakes.php">
+			<a class="navbar__item <?php if ($active_index === 3) { echo "navbar__item--active"; } ?>" href="recipe_page.php?recipe_index=1">
 				Pancakes
 			</a>
 <?php

@@ -1,31 +1,40 @@
+<?php
+
+$recipe_index = intval($_GET["recipe_index"]);
+
+if (!isset($recipe_index)) {
+    die("Invalid url!");
+}
+
+$cookbook = simplexml_load_file("resources/cookbook.xml");
+$recipe = $cookbook->recipe[$recipe_index];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 <?php
     include("components/head.php");
-    write_header("Pancakes - Recipes | Receps Recept");
+    write_header("$recipe->title - Recipes | Receps Recept");
 ?>
 </head>
 
 <body>
 <?php
     include("components/navbar.php");
-    write_navbar(3, "");
+    write_navbar(recipe_index + 3, "");
 ?>
-	<header class="header header--pancakes">
-		<h1 class="header__title">Pancakes</h1>
+	<header class="header" style="background-image: url(<?php echo $recipe->imageurl?>)">
+		<h1 class="header__title"><?php echo $recipe->title ?></h1>
 	</header>
 	<div class="recipe-content">
 		<div class="recipe-content__head">
 			<div class="recipe-information">
-				<span class="recipe-information__item recipe-information__item--right-divider">0.5 hours</span>
-				<span class="recipe-information__item">Easy</span>
-				<span class="recipe-information__item recipe-information__item--float--right">4 Servings</span>
-				<p class="recipe-information__description">
-					This recipe is so delicious and easy to make. Serve with butter and maple syrup, or lingonberries if you've got
-					them. A really classic Swedish traditional course!
-				</p>
+				<span class="recipe-information__item recipe-information__item--right-divider"><?php echo $recipe->totaltime ?></span>
+				<span class="recipe-information__item"><?php echo $recipe->rating ?></span>
+				<span class="recipe-information__item recipe-information__item--float--right"><?php echo $recipe->quantity ?></span>
+				<p class="recipe-information__description"><?php echo $recipe->description ?></p>
 			</div>
 		</div>
 		<div class="recipe-content__body">
@@ -33,12 +42,11 @@
 				<div class="ingredients-list">
 					<h2 class="ingredients-list__title">Ingredients</h2>
 					<ul class="ingredients-list__list">
-						<li class="ingredients-list__list-item">2 1/2 dl flour</li>
-						<li class="ingredients-list__list-item">1/2 tsp salt</li>
-						<li class="ingredients-list__list-item">6 dl milk</li>
-						<li class="ingredients-list__list-item">3 eggs</li>
-						<li class="ingredients-list__list-item">3 tbsp butter</li>
-						<li class="ingredients-list__list-item">jam, berries or fruit for serving</li>
+						<?php
+                            foreach ($recipe->ingredient->li as $ingredient) {
+                                echo '<li class="ingredients-list__list-item">' . $ingredient . '</li>';
+                            }
+                        ?>
 					</ul>
 				</div>
 			</div>
@@ -46,16 +54,11 @@
 				<div class="recipe-instructions">
 					<h2 class="recipe-instructions__title">Instructions</h2>
 					<ol class="recipe-instructions__list">
-						<li class="recipe-instructions__list-item">
-							Mix flour and salt in a bowl. Whip the mixture while poring in halve of the milk and mix until it is a smooth
-							batter. Mix in the rest of the milk and the eggs.
-						</li>
-						<li class="recipe-instructions__list-item">
-							Melt the butter in a frying pan and pour batter into the pan. Fry thin pancakes.
-						</li>
-						<li class="recipe-instructions__list-item">
-							Serve with jam, berries or fruit.
-						</li>
+						<?php
+                            foreach ($recipe->recipetext->li as $instruction) {
+                                echo '<li class="recipe-instructions__list-item">' . $instruction . '</li>';
+                            }
+                        ?>
 					</ol>
 				</div>
 			</div>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cookbook version="46">
+
+	<recipe>
+		<title>Meatballs</title>
+		<preptime>45 minutes</preptime>
+		<cooktime>15 minutes</cooktime>
+		<totaltime>1 hour</totaltime>
+		<description>
+			This is a great meal that will be very sucessful at the next potluck. It is a traditional swedish dish that is served at every IKEA in the world. The legend says that the meatball originates from Turkey and was brought to Sweden in the 18th century.
+		</description>
+		<ingredient>
+			<li>1 1/2 dl milk</li>
+			<li>5 tbsp bread crumbs</li>
+			<li>500g ground meat</li>
+			<li>1/2 yellow onion (peeled and grated)</li>
+			<li>1 egg</li>
+			<li>1 tsp salt</li>
+			<li>1 qt black pepper</li>
+			<li>1/2 tsp sugar</li>
+			<li>butter or margarine</li>
+		</ingredient>
+		<recipetext>
+			<li>Mix milk and bread crumbs. Let swell for 10 minutes. Add ground meat, onion, egg, salt, black pepper, and sugar to the bread crumb mix. Work the mix.</li>
+			<li>Moist the hands with cold water and form the meat balls. Fry a couple at a time in cooking oil, shake the pan at regular intervals so that the meatballs roll around and keeps it's round shape.</li>
+			<li>Serve the meatballs with boiled potatoes or mashed potatoes and lingonberry jam.</li>
+		</recipetext>
+		<url></url>
+		<video></video>
+		<quantity>8 Servings</quantity>
+		<imagepath></imagepath>
+		<imageurl>/resources/images/emiliano-vittoriosi-703094-unsplash.jpg</imageurl>
+		<comments></comments>
+		<source></source>
+		<video></video>
+		<nutrition></nutrition>
+		<rating>4 stars</rating>
+	</recipe>
+
+	<recipe>
+		<title>Pancakes</title>
+		<preptime>15 minutes</preptime>
+		<cooktime>15 minutes</cooktime>
+		<totaltime>30 minutes</totaltime>
+		<description>
+			This recipe is so delicious and easy to make. Serve with butter and maple syrup, or lingonberries if you've got them. A really classic Swedish traditional course!
+		</description>
+		<ingredient>
+			<li>2 1/2 dl flour</li>
+			<li>1/2 tsp salt</li>
+			<li>6 dl milk</li>
+			<li>3 eggs</li>
+			<li>3 tbsp butter</li>
+			<li>jam, berries or fruit for serving</li>
+		</ingredient>
+		<recipetext>
+			<li>Mix flour and salt in a bowl. Whip the mixture while poring in halve of the milk and mix until it is a smooth batter. Mix in the rest of the milk and the eggs.</li>
+			<li>Melt the butter in a frying pan and pour batter into the pan. Fry thin pancakes.</li>
+			<li>Serve with jam, berries or fruit.</li>
+		</recipetext>
+		<url></url>
+		<video></video>
+		<quantity>4 Servings</quantity>
+		<imagepath></imagepath>
+		<imageurl>/resources/images/blur-close-up-dairy-product-407041.jpg</imageurl>
+		<comments></comments>
+		<source></source>
+		<video></video>
+		<nutrition></nutrition>
+		<rating>5 stars</rating>
+	</recipe>
+
+
+</cookbook>

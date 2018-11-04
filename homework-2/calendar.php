@@ -1,3 +1,7 @@
+<?php
+$cookbook = simplexml_load_file("resources/cookbook.xml");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,7 +67,7 @@
 					</td>
 					<td class="calendar__day">
 						<div class="calendar__day-lable">5</div>
-						<img class="calendar__day-image" src="resources/images/blur-close-up-dairy-product-407041.jpg" alt="Pancakes">
+						<a href="/recipe_page.php?recipe_index=1"><img class="calendar__day-image" src="<?php echo $cookbook->recipe[1]->imageurl; ?>" alt="<?php echo $cookbook->recipe[1]->title; ?>"></a>
 					</td>
 					<td class="calendar__day">
 						<div class="calendar__day-lable">6</div>
@@ -119,7 +123,7 @@
 					</td>
 					<td class="calendar__day">
 						<div class="calendar__day-lable">22</div>
-						<img class="calendar__day-image" src="resources/images/emiliano-vittoriosi-703094-unsplash.jpg" alt="Meatballs">
+						<a href="/recipe_page.php?recipe_index=0"><img class="calendar__day-image" src="<?php echo $cookbook->recipe[0]->imageurl; ?>" alt="<?php echo $cookbook->recipe[0]->title; ?>"></a>
 					</td>
 					<td class="calendar__day">
 						<div class="calendar__day-lable">23</div>
