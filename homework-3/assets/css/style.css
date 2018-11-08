@@ -217,13 +217,13 @@ input#navbar__mobile-btn {
 	font-size: 20px;
 	padding: 15px;
 	display: none;
-	background: url('/resources/icons/bars-solid.svg') no-repeat left center;
+	background: url('/assets/icons/bars-solid.svg') no-repeat left center;
 	padding: 10px 0 10px 30px;
 	background-size: 15px auto;
 }
 
 input:checked ~ label.navbar__mobile-btn {
-	background-image: url('/resources/icons/times-solid.svg');
+	background-image: url('/assets/icons/times-solid.svg');
 }
 
 .navbar__list-container {
