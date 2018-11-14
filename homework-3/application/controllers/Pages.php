@@ -1,5 +1,5 @@
 <?php
-class Pages extends CI_Controller
+class Pages extends MY_Controller
 {
     public function __construct()
     {
@@ -10,17 +10,15 @@ class Pages extends CI_Controller
 
     public function view($page = 'home')
     {
+        $this->require_min_level(1);
+        $data['user_is_logged_in'] = $this->is_logged_in();
+
         $data['recipes'] = $this->recipe_model->get_recipes();
 
-        // if (! file_exists(APPPATH.'views/pages/'.$page.'.php')) {
-        //     // Whoops, we don't have a page for that!
-        //     show_404();
-        // }
-
-        // $data['title'] = ucfirst($page); // Capitalize the first letter
         $data['title'] = "Receps Recept";
         $data['nav_active_index'] = 0;
         $data['nav_extra_class'] = "navbar--tighter";
+        $data['nav_extra_button_class'] = 'button--mobile-smaller';
 
         $data['navbar'] = $this->load->view('templates/navbar', $data, true);
 

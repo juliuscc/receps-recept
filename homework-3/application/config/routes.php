@@ -57,5 +57,7 @@ $route['translate_uri_dashes'] = false;
 $route['recipes/(:any)'] = 'recipes/view/$1';
 $route['calendar'] = 'calendar';
 
+$route[LOGIN_PAGE] = 'examples/login';
+
 $route['(:any)'] = 'pages/view/$1';
 $route['default_controller'] = 'pages/view';

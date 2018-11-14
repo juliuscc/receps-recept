@@ -10,7 +10,7 @@ class Comment_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('comments');
-        $this->db->join('users', 'comments.user_id = users.id');
+        $this->db->join('users', 'comments.user_id = users.user_id');
 
         $query = $this->db->get();
         

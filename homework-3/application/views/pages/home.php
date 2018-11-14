@@ -14,7 +14,6 @@
 		<h3 class="recipe-card__title"><?php echo $recipe['title']; ?></h3>
 		</a>
 
-
 	<?php endforeach; ?>
 	</div>
 </div>

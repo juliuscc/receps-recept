@@ -1,5 +1,5 @@
 <?php
-class Recipes extends CI_Controller
+class Recipes extends MY_Controller
 {
     public function __construct()
     {
