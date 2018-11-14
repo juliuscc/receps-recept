@@ -8,7 +8,12 @@ class Comment_model extends CI_Model
     
     public function get_comments($recipe_id)
     {
-        $query = $this->db->get_where('comments', array('recipe_id' => $recipe_id));
-        return $query->row_array();
+        $this->db->select('*');
+        $this->db->from('comments');
+        $this->db->join('users', 'comments.user_id = users.id');
+
+        $query = $this->db->get();
+        
+        return $query->result();
     }
 }

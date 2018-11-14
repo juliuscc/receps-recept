@@ -17,12 +17,7 @@
 				<div class="ingredients-list">
 					<h2 class="ingredients-list__title">Ingredients</h2>
 					<ul class="ingredients-list__list">
-						<?php
-                            echo $recipe_item['ingredients'];
-                            // foreach ($recipe_item->ingredient->li as $ingredient) {
-                            //     echo '<li class="ingredients-list__list-item">' . $ingredient . '</li>';
-                            // }
-                        ?>
+						<?php echo $recipe_item['ingredients']; ?>
 					</ul>
 				</div>
 			</div>
@@ -30,12 +25,7 @@
 				<div class="recipe-instructions">
 					<h2 class="recipe-instructions__title">Instructions</h2>
 					<ol class="recipe-instructions__list">
-						<?php
-                            echo $recipe_item['instructions'];
-                            // foreach ($recipe_item->recipetext->li as $instruction) {
-                            //     echo '<li class="recipe-instructions__list-item">' . $instruction . '</li>';
-                            // }
-                        ?>
+						<?php echo $recipe_item['instructions']; ?>
 					</ol>
 				</div>
 			</div>
@@ -44,22 +34,17 @@
 	<div class="user-comment-section">
 		<h2 class="user-comment-section__title">Comments</h2>
 		<div class="user-comment-section__container">
-		<?php
-            // while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-            //     echo '<form class="user-comment" method="post" action="delete_user_comment.php">';
-            //     echo '<input type="hidden" name="id" value="'. $row["id"] . '" required />';
-            //     echo '<input type="hidden" name="recipe_index" value="'. $recipe_index . '" required />';
-            //     echo '<div class="user-comment__wrapper">';
-            //     echo '<div class="user-comment__username">' . $row["username"] . '</div>';
-            //     echo '<div class="user-comment__comment">' . $row["comment"] . '</div>';
-            //     echo '</div>';
-            //     if ($current_user === $row["username"]) {
-            //         echo '<button type="submit" class="button button--danger">Delete comment</button>';
-            //     } else {
-            //         echo '<button type="submit" style="visibility:hidden" class="button button--danger">Delete comment</button>';
-            //     }
-            //     echo '</form>';
-            // }
-        ?>
+		<?php foreach ($comments as $comment): ?>
+			<form class="user-comment" method="post" action="delete_user_comment.php">
+			<input type="hidden" name="id" value="<?php echo $comment->user_id; ?>" required />
+			<input type="hidden" name="id" value="<?php echo $recipe_item['id']; ?>" required />
+				<div class="user-comment__wrapper">
+					<div class="user-comment__username"><?php echo $comment->username; ?></div>
+					<div class="user-comment__comment"><?php echo $comment->comment; ?></div>
+				</div>
+				<button type="submit" style="visibility:hidden" class="button button--danger">Delete comment</button>
+			</form>
+
+		<?php endforeach; ?>
 		</div>
 	</div>
