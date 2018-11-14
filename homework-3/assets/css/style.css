@@ -484,7 +484,8 @@ input:checked ~ label.navbar__mobile-btn {
 	list-style-position: inside;
 }
 
-.ingredients-list__list-item {
+.ingredients-list__list-item,
+.ingredients-list__list > li {
 	margin-bottom: 8px;
 }
 
@@ -502,7 +503,8 @@ input:checked ~ label.navbar__mobile-btn {
 	/* list-style-position: inside; */
 }
 
-.recipe-instructions__list-item {
+.recipe-instructions__list-item,
+.recipe-instructions__list > li {
 	margin-bottom: 20px;
 	font-size: 18px;
 }
