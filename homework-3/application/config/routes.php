@@ -64,7 +64,8 @@ $route['auth/login']['post'] = 'auth/post_login';
 $route['auth/register']['post'] = 'auth/post_register';
 $route['auth/logout'] = 'auth/logout';
 
-$route['comments']['post'] = 'comments/create';
+$route['comments/create']['post'] = 'comments/create';
+$route['comments/delete']['post'] = 'comments/delete';
 
 $route['(:any)'] = 'pages/view/$1';
 $route['default_controller'] = 'pages/view';

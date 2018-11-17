@@ -73,7 +73,7 @@ class Auth extends CI_Controller
             
             if (isset($user)) {
                 session_start();
-                $_SESSION["logged_in_user"] = $user->id;
+                $_SESSION["logged_in_user"] = $user->user_id;
                 redirect(site_url());
             } else {
                 $data['error'] = true;
@@ -104,7 +104,7 @@ class Auth extends CI_Controller
                 $user = $this->user_model->get_user($username, $password);
 
                 session_start();
-                $_SESSION["logged_in_user"] = $user->id;
+                $_SESSION["logged_in_user"] = $user->user_id;
                 redirect(site_url());
             }
         }

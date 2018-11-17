@@ -35,7 +35,7 @@
 		<h2 class="user-comment-section__title">Comments</h2>
 		<div class="user-comment-section__container">
 		<?php if (isset($logged_in_user)): ?>
-			<form action="<?php echo site_url('comments'); ?>" method="post" class="user-comment-form">
+			<form action="<?php echo site_url('comments/create'); ?>" method="post" class="user-comment-form">
 				<input type="hidden" name="user_id" value="<?php echo $logged_in_user; ?>" required />
 				<input type="hidden" name="recipe_id" value="<?php echo $recipe_item['id']; ?>" required />
 				<input type="hidden" name="recipe_slug" value="<?php echo $recipe_item['slug']; ?>" required />
@@ -48,14 +48,19 @@
 		<?php endif; ?>
 
 		<?php foreach ($comments as $comment): ?>
-			<form class="user-comment" method="post" action="delete_user_comment.php">
-			<input type="hidden" name="user_id" value="<?php echo $comment->user_id; ?>" required />
+			<form class="user-comment" method="post" action="<?php echo site_url('comments/delete'); ?>">
+			<input type="hidden" name="comment_id" value="<?php echo $comment->id; ?>" required />
 			<input type="hidden" name="recipe_id" value="<?php echo $recipe_item['id']; ?>" required />
+			<input type="hidden" name="recipe_slug" value="<?php echo $recipe_item['slug']; ?>" required />
 				<div class="user-comment__wrapper">
 					<div class="user-comment__username"><?php echo $comment->username; ?></div>
 					<div class="user-comment__comment"><?php echo $comment->comment; ?></div>
 				</div>
-				<button type="submit" style="visibility:hidden" class="button button--danger">Delete comment</button>
+				<?php if (isset($logged_in_user) and $logged_in_user === $comment->user_id): ?>
+					<button type="submit" class="button button--danger">Delete comment</button>
+				<?php else: ?>
+					<button type="submit" style="visibility:hidden" class="button button--danger">Delete comment</button>
+				<?php endif; ?>
 			</form>
 
 		<?php endforeach; ?>
