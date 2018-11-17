@@ -34,10 +34,23 @@
 	<div class="user-comment-section">
 		<h2 class="user-comment-section__title">Comments</h2>
 		<div class="user-comment-section__container">
+		<?php if (isset($logged_in_user)): ?>
+			<form action="<?php echo site_url('comments'); ?>" method="post" class="user-comment-form">
+				<input type="hidden" name="user_id" value="<?php echo $logged_in_user; ?>" required />
+				<input type="hidden" name="recipe_id" value="<?php echo $recipe_item['id']; ?>" required />
+				<input type="hidden" name="recipe_slug" value="<?php echo $recipe_item['slug']; ?>" required />
+				<label class="auth-form__label" for="comment">Write a comment:</label>
+				<div class="user-comment-form__wrapper">
+					<textarea type="text" name="comment" id="comment" class="user-comment-form__comment-input" required></textarea>
+					<button type="submit" class="button">Submit comment</button>
+				</div>
+			</form>
+		<?php endif; ?>
+
 		<?php foreach ($comments as $comment): ?>
 			<form class="user-comment" method="post" action="delete_user_comment.php">
-			<input type="hidden" name="id" value="<?php echo $comment->user_id; ?>" required />
-			<input type="hidden" name="id" value="<?php echo $recipe_item['id']; ?>" required />
+			<input type="hidden" name="user_id" value="<?php echo $comment->user_id; ?>" required />
+			<input type="hidden" name="recipe_id" value="<?php echo $recipe_item['id']; ?>" required />
 				<div class="user-comment__wrapper">
 					<div class="user-comment__username"><?php echo $comment->username; ?></div>
 					<div class="user-comment__comment"><?php echo $comment->comment; ?></div>

@@ -16,4 +16,15 @@ class Comment_model extends CI_Model
         
         return $query->result();
     }
+    
+    public function create_comment($user_id, $recipe_id, $comment)
+    {
+        $data = array(
+            'user_id' => $user_id,
+            'recipe_id' => $recipe_id,
+            'comment' => $comment
+        );
+
+        $this->db->insert('comments', $data);
+    }
 }
