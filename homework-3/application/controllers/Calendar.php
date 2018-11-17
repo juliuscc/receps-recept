@@ -11,10 +11,15 @@ class Calendar extends CI_Controller
 
     public function index()
     {
-        // $data['news'] = $this->news_model->get_news();
+        session_start();
+        if (isset($_SESSION["logged_in_user"])) {
+            $data['logged_in_user'] = $_SESSION["logged_in_user"];
+        }
+
         $data['title'] = 'Calendar | Receps Recept';
         $data['nav_active_index'] = 1;
         $data['nav_extra_class'] = "";
+        $data['nav_button_class'] = "";
 
         $data['navbar'] = $this->load->view('templates/navbar', $data, true);
         $data['cal_weekdays'] = $this->calendar_model->get_calendar();

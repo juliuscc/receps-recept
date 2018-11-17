@@ -148,6 +148,10 @@ button::-moz-focus-inner {
 	margin-left: auto;
 }
 
+.button--hide {
+	display: none;
+}
+
 @media (max-width: 870px) {
 	.button--mobile-smaller {
 		height: 30px;
