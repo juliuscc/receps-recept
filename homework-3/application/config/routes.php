@@ -51,8 +51,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 */
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = false;
-// $route['news/(:any)'] = 'news/view/$1';
-// $route['news'] = 'news';
 
 $route['recipes/(:any)'] = 'recipes/view/$1';
 $route['calendar'] = 'calendar';
