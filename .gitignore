@@ -85,3 +85,6 @@ reports/**/*.bbl
 reports/**/*.blg
 reports/**/*.run.xml
 reports/**/*.out
+
+# Elm stuff
+/**/*/elm-stuff
