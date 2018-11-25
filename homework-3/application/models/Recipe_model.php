@@ -13,7 +13,7 @@ class Recipe_model extends CI_Model
             return $query->result_array();
         }
 
-        $query = $this->db->get_where('recipes', array('slug' => $slug));
+        $query = $this->db->get_where('recipes', array('slug' => $this->db->escape($slug)));
         return $query->row_array();
     }
 }

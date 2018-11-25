@@ -10,9 +10,9 @@ class User_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('users');
-        $this->db->where('username', $username);
+        $this->db->where('username', $this->db->escape($username));
         if ($password !== false) {
-            $this->db->where('password', $password);
+            $this->db->where('password', $this->db->escape($password));
         }
         
         $query = $this->db->get();
@@ -23,8 +23,8 @@ class User_model extends CI_Model
     public function create_user($username, $password)
     {
         $data = array(
-            'username' => $username,
-            'password' => $password
+            'username' => $this->db->escape($username),
+            'password' => $this->db->escape($password)
         );
 
         $this->db->insert('users', $data);
