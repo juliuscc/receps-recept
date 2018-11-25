@@ -1,25 +1,27 @@
 {
-  "name": "login-button",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+	"name": "login-button",
+	"version": "1.0.0",
+	"main": "wrapper.js",
+	"scripts": {
+		"example": "node server.js",
+		"bundle-js-dev": "webpack --config ./webpack.dev.config.js",
+		"bundle-js-prod": "webpack -p --config ./webpack.prod.config.js",
+		"bundle-js": "npm run test && npm run bundle-js-dev && npm run bundle-js-prod"
+	},
+	"dependencies": {
+		"babel-cli": "^6.5.0",
+		"babel-core": "^6.5.0",
+		"babel-loader": "^6.2.4",
+		"babel-plugin-transform-runtime": "^6.5.0",
+		"babel-polyfill": "^6.5.0",
+		"babel-preset-es2015": "^6.5.0",
+		"babel-preset-react": "^6.5.0",
+		"babel-preset-stage-1": "^6.5.0",
+		"babel-preset-stage-2": "^6.5.0",
+		"babel-runtime": "^6.5.0",
+		"express": "^4.13.4",
+		"react": "^15.0.1",
+		"react-dom": "^15.0.0",
+		"webpack": "^1.13.0"
+	}
 }
