@@ -8,6 +8,54 @@ class Comments extends CI_Controller
         $this->load->model('comment_model');
         $this->load->library('form_validation');
     }
+    
+    public function api_get($recipe_id)
+    {
+        $comments = $this->comment_model->get_comments($recipe_id);
+        
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_status_header(200)
+            ->set_output(json_encode($comments));
+    }
+
+    public function api_create()
+    {
+        $jsonArray = json_decode(file_get_contents('php://input'), true);
+
+        $user_id = $jsonArray['user_id'];
+        $recipe_id = $jsonArray['recipe_id'];
+        $comment = $jsonArray['comment'];
+        
+        $this->comment_model->create_comment($user_id, $recipe_id, $comment);
+        
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_status_header(200)
+            ->set_output(json_encode(array()));
+    }
+
+    public function api_delete($comment_id)
+    {
+        $jsonArray = json_decode(file_get_contents('php://input'), true);
+
+        $user_id = $jsonArray['user_id'];
+        $comment = $this->comment_model->get_comment($comment_id);
+
+        if ($comment->user_id == $user_id) {
+            $this->comment_model->delete_comment($comment_id);
+
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(200)
+                ->set_output(json_encode(array()));
+        } else {
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(400)
+                ->set_output(json_encode(array()));
+        }
+    }
 
     public function create()
     {

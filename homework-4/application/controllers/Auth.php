@@ -9,6 +9,67 @@ class Auth extends CI_Controller
         $this->load->library('form_validation');
     }
 
+    public function api_post_login()
+    {
+        $jsonArray = json_decode(file_get_contents('php://input'), true);
+
+        $username = $jsonArray['username'];
+        $password = $jsonArray['password'];
+        
+        if (isset($username) and isset($password)) {
+            $user = $this->user_model->get_user($username, $password);
+        }
+
+        if (isset($user)) {
+            $user_output = array(
+                "id" => $user->user_id,
+                "username" => $user->username
+            );
+
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(200)
+                ->set_output(json_encode($user_output));
+        } else {
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(400)
+                ->set_output(json_encode(array()));
+        }
+    }
+
+    public function api_post_register()
+    {
+        $jsonArray = json_decode(file_get_contents('php://input'), true);
+
+        $username = $jsonArray['username'];
+        $password = $jsonArray['password'];
+        
+        if (isset($username)) {
+            $user = $this->user_model->get_user($username);
+        }
+        
+        if (!isset($username) or !isset($password) or isset($user)) {
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(400)
+                ->set_output(json_encode(array()));
+        } else {
+            $this->user_model->create_user($username, $password);
+            $user = $this->user_model->get_user($username, $password);
+            
+            $user_output = array(
+                "id" => $user->user_id,
+                "username" => $user->username
+            );
+
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(200)
+                ->set_output(json_encode($user_output));
+        }
+    }
+
     private function render_login($data)
     {
         $data['title'] = "Log in | Receps Recept";

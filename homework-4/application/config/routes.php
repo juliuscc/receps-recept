@@ -65,5 +65,13 @@ $route['auth/logout'] = 'auth/logout';
 $route['comments/create']['post'] = 'comments/create';
 $route['comments/delete']['post'] = 'comments/delete';
 
+$route['api/comments/(:num)']['get'] = 'comments/api_get/$1';
+$route['api/comments/create']['post'] = 'comments/api_create';
+$route['api/comments/delete/(:num)']['post'] = 'comments/api_delete/$1';
+
+$route['api/auth/login']['post'] = 'auth/api_post_login';
+$route['api/auth/register']['post'] = 'auth/api_post_register';
+
+
 $route['(:any)'] = 'pages/view/$1';
 $route['default_controller'] = 'pages/view';
