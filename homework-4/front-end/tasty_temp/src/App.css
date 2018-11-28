@@ -169,8 +169,8 @@ button::-moz-focus-inner {
 
 .button:disabled {
 	color: white;
-	background: #bbb;
-	border-color: #bbb;
+	background: #ccc;
+	border-color: #ccc;
 	cursor: initial;
 	transform: none;
 }
