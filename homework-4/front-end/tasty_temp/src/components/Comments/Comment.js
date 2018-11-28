@@ -13,7 +13,7 @@ const Comment = ({ comment: { comment, username, userId }, loggedInUser }) => (
 		</div>
 		<button
 			type="submit"
-			style={loggedInUser === userId ? { visibility: 'hidden' } : {}}
+			style={loggedInUser === userId ? {} : { visibility: 'hidden' }}
 			class="button button--danger"
 		>
 			Delete comment

@@ -7,7 +7,7 @@ class App extends Component {
 	constructor(props) {
 		super(props)
 
-		this.state = { recipeId: 4 }
+		this.state = { recipeId: 4, apiUrl: 'localhost:8888/api' }
 	}
 
 	componentDidMount() {
@@ -18,7 +18,7 @@ class App extends Component {
 						comment: 'I love pancakes',
 						commentId: 2,
 						username: 'Julius',
-						userId: 3
+						userId: 2
 					},
 					{
 						comment: 'I also love pancakes!!',
@@ -29,6 +29,10 @@ class App extends Component {
 				]
 			}))
 		}, 1500)
+
+		this.setState(({ loggedInUser }) => ({
+			loggedInUser: 2
+		}))
 	}
 
 	render() {
@@ -36,11 +40,11 @@ class App extends Component {
 			<React.Fragment>
 				<h2 class="user-comment-section__title">Comments</h2>
 				<div class="user-comment-section__container">
-					<Wrapper />
+					<Wrapper loggedInUser={this.state.loggedInUser} />
 					{this.state.comments ? (
 						<CommentList
 							comments={this.state.comments}
-							loggedInUser={2}
+							loggedInUser={this.state.loggedInUser}
 						/>
 					) : (
 						<div>Fetching comments...</div>
