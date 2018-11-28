@@ -167,6 +167,14 @@ button::-moz-focus-inner {
 	}
 }
 
+.button:disabled {
+	color: white;
+	background: #bbb;
+	border-color: #bbb;
+	cursor: initial;
+	transform: none;
+}
+
 /*
 ============== NAVBAR ==============
 */
