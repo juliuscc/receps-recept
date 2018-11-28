@@ -40,7 +40,11 @@ class App extends Component {
 			<React.Fragment>
 				<h2 class="user-comment-section__title">Comments</h2>
 				<div class="user-comment-section__container">
-					<Wrapper loggedInUser={this.state.loggedInUser} />
+					<Wrapper
+						loggedInUser={this.state.loggedInUser}
+						submitComment={this.submitComment}
+						apiUrl={this.state.apiUrl}
+					/>
 					{this.state.comments ? (
 						<CommentList
 							comments={this.state.comments}

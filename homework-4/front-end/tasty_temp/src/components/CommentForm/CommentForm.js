@@ -4,6 +4,8 @@ class CommentForm extends Component {
 	constructor(props) {
 		super(props)
 
+		this.submitForm = props.submitForm
+
 		this.state = { value: '' }
 	}
 
@@ -30,6 +32,7 @@ class CommentForm extends Component {
 						type="submit"
 						className="button"
 						disabled={!this.state.value}
+						onClick={this.submitForm}
 					>
 						Submit comment
 					</button>
