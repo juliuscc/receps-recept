@@ -16,7 +16,7 @@ class CommentForm extends Component {
 	render() {
 		return (
 			<div className="user-comment-form">
-				<label className="auth-form__label" for="comment">
+				<label className="auth-form__label" htmlFor="comment">
 					Write a comment:
 				</label>
 				<div className="user-comment-form__wrapper">

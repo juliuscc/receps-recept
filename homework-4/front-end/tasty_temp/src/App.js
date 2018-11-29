@@ -7,39 +7,27 @@ class App extends Component {
 	constructor(props) {
 		super(props)
 
-		this.state = { recipeId: 4, apiUrl: 'localhost:8888/api' }
+		this.state = {
+			recipeId: 4,
+			apiUrl: 'http://localhost:8888/index.php/api'
+		}
 	}
 
 	componentDidMount() {
-		setTimeout(() => {
-			this.setState(({ comments }) => ({
-				comments: [
-					{
-						comment: 'I love pancakes',
-						commentId: 2,
-						username: 'Julius',
-						userId: 2
-					},
-					{
-						comment: 'I also love pancakes!!',
-						commentId: 3,
-						username: 'Sara',
-						userId: 5
-					}
-				]
-			}))
-		}, 1500)
+		fetch(this.state.apiUrl + '/comments/' + this.state.recipeId)
+			.then(response => response.json())
+			.then(json => this.setState({ comments: json }))
 
 		this.setState(({ loggedInUser }) => ({
-			loggedInUser: 2
+			loggedInUser: 10
 		}))
 	}
 
 	render() {
 		return (
 			<React.Fragment>
-				<h2 class="user-comment-section__title">Comments</h2>
-				<div class="user-comment-section__container">
+				<h2 className="user-comment-section__title">Comments</h2>
+				<div className="user-comment-section__container">
 					<Wrapper
 						loggedInUser={this.state.loggedInUser}
 						submitComment={this.submitComment}
@@ -51,7 +39,7 @@ class App extends Component {
 							loggedInUser={this.state.loggedInUser}
 						/>
 					) : (
-						<div>Fetching comments...</div>
+						<div className="user-comment">Fetching comments...</div>
 					)}
 				</div>
 			</React.Fragment>
