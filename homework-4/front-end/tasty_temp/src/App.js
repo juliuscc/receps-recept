@@ -18,9 +18,39 @@ class App extends Component {
 			.then(response => response.json())
 			.then(json => this.setState({ comments: json }))
 
-		this.setState(({ loggedInUser }) => ({
+		this.setState(() => ({
 			loggedInUser: 10
 		}))
+	}
+
+	submitComment = comment => {
+		if (comment.length < 1) return
+
+		const endpoint = this.state.apiUrl + '/comments/create'
+
+		const postData = {
+			comment,
+			user_id: this.state.loggedInUser,
+			recipe_id: this.state.recipeId
+		}
+
+		fetch(endpoint, {
+			method: 'POST',
+			body: JSON.stringify(postData)
+		})
+			.then(response => {
+				if (response.ok) {
+					return response.json()
+				}
+				throw new Error('Comment could not be uploaded')
+			})
+			.then(comment =>
+				this.setState(state => {
+					const comments = state.comments
+					return { comments: [...comments, comment] }
+				})
+			)
+			.catch(error => console.error(error))
 	}
 
 	render() {
@@ -30,8 +60,8 @@ class App extends Component {
 				<div className="user-comment-section__container">
 					<Wrapper
 						loggedInUser={this.state.loggedInUser}
-						submitComment={this.submitComment}
 						apiUrl={this.state.apiUrl}
+						submitComment={this.submitComment}
 					/>
 					{this.state.comments ? (
 						<CommentList

@@ -27,12 +27,12 @@ class Comments extends CI_Controller
         $recipe_id = $jsonArray['recipe_id'];
         $comment = $jsonArray['comment'];
         
-        $this->comment_model->create_comment($user_id, $recipe_id, $comment);
+        $insert_id = $this->comment_model->create_comment($user_id, $recipe_id, $comment);
         
         return $this->output
             ->set_content_type('application/json')
             ->set_status_header(200)
-            ->set_output(json_encode(array()));
+            ->set_output(json_encode($this->comment_model->get_comment($insert_id)));
     }
 
     public function api_delete($comment_id)

@@ -9,20 +9,23 @@ const CommentList = ({ comments, loggedInUser }) =>
 		/>
 	))
 
-const Comment = ({ comment: { comment, username, user_id }, loggedInUser }) => (
-	<div className="user-comment">
-		<div className="user-comment__wrapper">
-			<div className="user-comment__username">{username}</div>
-			<div className="user-comment__comment">{comment}</div>
+const Comment = ({ comment: { comment, username, user_id }, loggedInUser }) => {
+	console.log({ comment, username, user_id })
+	return (
+		<div className="user-comment">
+			<div className="user-comment__wrapper">
+				<div className="user-comment__username">{username}</div>
+				<div className="user-comment__comment">{comment}</div>
+			</div>
+			<button
+				type="submit"
+				style={loggedInUser == user_id ? {} : { visibility: 'hidden' }}
+				className="button button--danger"
+			>
+				Delete comment
+			</button>
 		</div>
-		<button
-			type="submit"
-			style={loggedInUser == user_id ? {} : { visibility: 'hidden' }}
-			className="button button--danger"
-		>
-			Delete comment
-		</button>
-	</div>
-)
+	)
+}
 
 export default CommentList

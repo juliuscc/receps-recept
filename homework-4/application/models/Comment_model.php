@@ -8,9 +8,10 @@ class Comment_model extends CI_Model
     
     public function get_comment($comment_id)
     {
-        $this->db->select('*');
+        $this->db->select('id, users.user_id, recipe_id, comment, username');
         $this->db->where('id', $comment_id);
         $this->db->from('comments');
+        $this->db->join('users', 'comments.user_id = users.user_id');
 
         $query = $this->db->get();
         
@@ -38,6 +39,7 @@ class Comment_model extends CI_Model
         );
 
         $this->db->insert('comments', $data);
+        return $this->db->insert_id();
     }
     
     public function delete_comment($comment_id)
