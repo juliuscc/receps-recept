@@ -17,6 +17,9 @@ class App extends Component {
 		fetch(this.state.apiUrl + '/comments/' + this.state.recipeId)
 			.then(response => response.json())
 			.then(json => this.setState({ comments: json }))
+
+		const loggedInUser = localStorage.getItem('loggedInUser')
+		this.setState({ loggedInUser })
 	}
 
 	submitComment = comment => {
@@ -91,7 +94,10 @@ class App extends Component {
 				}
 				throw new Error('Comment could not be deleted')
 			})
-			.then(user => this.setState({ loggedInUser: user.id }))
+			.then(user => {
+				localStorage.setItem('loggedInUser', user.id)
+				this.setState({ loggedInUser: user.id })
+			})
 			.catch(error => {
 				console.error(error)
 				errorFun()
@@ -112,7 +118,10 @@ class App extends Component {
 				}
 				throw new Error('Comment could not be deleted')
 			})
-			.then(user => this.setState({ loggedInUser: user.id }))
+			.then(user => {
+				localStorage.setItem('loggedInUser', user.id)
+				this.setState({ loggedInUser: user.id })
+			})
 			.catch(error => {
 				console.error(error)
 				errorFun()
@@ -120,6 +129,7 @@ class App extends Component {
 	}
 
 	logout = () => {
+		localStorage.removeItem('loggedInUser')
 		this.setState({ loggedInUser: undefined })
 	}
 
