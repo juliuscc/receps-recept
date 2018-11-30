@@ -76,7 +76,7 @@ class App extends Component {
 			.catch(console.error)
 	}
 
-	submitLogin = (username, password) => {
+	submitLogin = (username, password, errorFun) => {
 		const endpoint = this.state.apiUrl + '/auth/login'
 
 		const postData = { username, password }
@@ -92,10 +92,13 @@ class App extends Component {
 				throw new Error('Comment could not be deleted')
 			})
 			.then(user => this.setState({ loggedInUser: user.id }))
-			.catch(console.error)
+			.catch(error => {
+				console.error(error)
+				errorFun()
+			})
 	}
 
-	submitRegister = (username, password) => {
+	submitRegister = (username, password, errorFun) => {
 		const endpoint = this.state.apiUrl + '/auth/register'
 
 		const postData = { username, password }
@@ -110,7 +113,10 @@ class App extends Component {
 				throw new Error('Comment could not be deleted')
 			})
 			.then(user => this.setState({ loggedInUser: user.id }))
-			.catch(console.error)
+			.catch(error => {
+				console.error(error)
+				errorFun()
+			})
 	}
 
 	logout = () => {

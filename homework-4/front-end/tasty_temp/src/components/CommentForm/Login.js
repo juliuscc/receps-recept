@@ -39,6 +39,10 @@ class LoginForm extends Component {
 		this.setState({ password: event.target.value })
 	}
 
+	loginError = () => {
+		this.setState({ error: true })
+	}
+
 	render() {
 		return (
 			<form
@@ -48,7 +52,8 @@ class LoginForm extends Component {
 
 					this.props.submitLogin(
 						this.state.username,
-						this.state.password
+						this.state.password,
+						this.loginError
 					)
 				}}
 			>
@@ -83,6 +88,13 @@ class LoginForm extends Component {
 					onChange={this.updatePassword}
 					required
 				/>
+				{this.state.error ? (
+					<div className="auth-form__error-text">
+						Oops, that's not a match!
+					</div>
+				) : (
+					<div />
+				)}
 				<button className="button button--place-right" type="submit">
 					Log in
 				</button>
@@ -106,6 +118,10 @@ class RegisterForm extends Component {
 		this.setState({ password: event.target.value })
 	}
 
+	registerError = () => {
+		this.setState({ error: true })
+	}
+
 	render() {
 		return (
 			<form
@@ -115,7 +131,8 @@ class RegisterForm extends Component {
 
 					this.props.submitRegister(
 						this.state.username,
-						this.state.password
+						this.state.password,
+						this.registerError
 					)
 				}}
 			>
@@ -151,6 +168,14 @@ class RegisterForm extends Component {
 					onChange={this.updatePassword}
 					required
 				/>
+				{this.state.error ? (
+					<div className="auth-form__error-text">
+						Oops, that's not a match!
+					</div>
+				) : (
+					<div />
+				)}
+
 				<button className="button button--place-right" type="submit">
 					Log in
 				</button>
