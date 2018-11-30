@@ -31,38 +31,22 @@
 			</div>
 		</div>
 	</div>
-	<div class="user-comment-section">
-		<h2 class="user-comment-section__title">Comments</h2>
-		<div class="user-comment-section__container">
-		<?php if (isset($logged_in_user)): ?>
-			<form action="<?php echo site_url('comments/create'); ?>" method="post" class="user-comment-form">
-				<input type="hidden" name="user_id" value="<?php echo $logged_in_user; ?>" required />
-				<input type="hidden" name="recipe_id" value="<?php echo $recipe_item['id']; ?>" required />
-				<input type="hidden" name="recipe_slug" value="<?php echo $recipe_item['slug']; ?>" required />
-				<label class="auth-form__label" for="comment">Write a comment:</label>
-				<div class="user-comment-form__wrapper">
-					<textarea type="text" name="comment" id="comment" class="user-comment-form__comment-input" required></textarea>
-					<button type="submit" class="button">Submit comment</button>
-				</div>
-			</form>
-		<?php endif; ?>
-
-		<?php foreach ($comments as $comment): ?>
-			<form class="user-comment" method="post" action="<?php echo site_url('comments/delete'); ?>">
-			<input type="hidden" name="comment_id" value="<?php echo $comment->id; ?>" required />
-			<input type="hidden" name="recipe_id" value="<?php echo $recipe_item['id']; ?>" required />
-			<input type="hidden" name="recipe_slug" value="<?php echo $recipe_item['slug']; ?>" required />
-				<div class="user-comment__wrapper">
-					<div class="user-comment__username"><?php echo $comment->username; ?></div>
-					<div class="user-comment__comment"><?php echo $comment->comment; ?></div>
-				</div>
-				<?php if (isset($logged_in_user) and $logged_in_user === $comment->user_id): ?>
-					<button type="submit" class="button button--danger">Delete comment</button>
-				<?php else: ?>
-					<button type="submit" style="visibility:hidden" class="button button--danger">Delete comment</button>
-				<?php endif; ?>
-			</form>
-
-		<?php endforeach; ?>
-		</div>
+	<div class="user-comment-section" id="react-comment-app">
 	</div>
+
+	<script src="<?php echo base_url(); ?>assets/tasty-min.js" type="text/javascript"></script>
+	<script>
+		function initialise() 
+		{
+			const apiUrl = '<?php echo site_url('api'); ?>';
+			const recipeId = <?php echo $recipe_item["id"]; ?>;
+			const rootElement = document.getElementById("react-comment-app");
+
+			console.log(rootElement)
+
+			showApp(apiUrl, recipeId, rootElement);
+		}
+
+		const body = document.querySelector("body");
+	  	body.onload = initialise;
+	</script>

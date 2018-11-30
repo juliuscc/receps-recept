@@ -12,21 +12,5 @@
 } ?>" href="<?php echo site_url('calendar/') ?>">
 			Calendar
 		</a>
-<?php
-
-if (isset($logged_in_user)) {
-    $login_link = site_url('auth/logout');
-    $button_string = 'Log out';
-} else {
-    $login_link = site_url('auth/login');
-    $button_string = 'Log in';
-}
-?>
-
-		<a 
-			class="button button--place-right button--stretch-mobile navbar__item--center-vertically <?php echo $nav_button_class; ?>" 
-			href="<?php echo $login_link; ?>">
-			<?php echo $button_string; ?>
-		</a>
 	</div>
 </nav>

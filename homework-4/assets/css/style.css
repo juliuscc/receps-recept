@@ -695,6 +695,11 @@ input:checked ~ label.navbar__mobile-btn {
 	margin: 20px auto;
 }
 
+.auth-form--small > h3 {
+	font-family: 'Lato', sans-serif;
+	text-align: left;
+}
+
 .auth-form__text {
 	margin-bottom: 50px;
 	margin-top: -10px;
