@@ -1,5 +1,5 @@
 {
-	"name": "login-button",
+	"name": "tasty-app",
 	"version": "1.0.0",
 	"main": "wrapper.js",
 	"scripts": {
@@ -20,8 +20,8 @@
 		"babel-preset-stage-2": "^6.5.0",
 		"babel-runtime": "^6.5.0",
 		"express": "^4.13.4",
-		"react": "^15.0.1",
-		"react-dom": "^15.0.0",
+		"react": "^16.6.3",
+		"react-dom": "^16.6.3",
 		"webpack": "^1.13.0"
 	}
 }

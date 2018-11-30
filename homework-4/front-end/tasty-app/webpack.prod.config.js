@@ -1,12 +1,12 @@
 const webpack = require('webpack')
 
 module.exports = {
-	entry: './wrapper.js',
+	entry: './App.js',
 	output: {
 		libraryTarget: 'var',
-		library: 'showLoginButton',
+		library: 'showApp',
 		path: 'builds',
-		filename: 'login-button-min.js'
+		filename: 'tasty-min.js'
 	},
 	module: {
 		loaders: [

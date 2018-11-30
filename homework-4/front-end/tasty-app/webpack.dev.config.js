@@ -1,10 +1,10 @@
 module.exports = {
-	entry: './wrapper.js',
+	entry: './App.js',
 	output: {
 		libraryTarget: 'var',
-		library: 'showLoginButton',
+		library: 'showApp',
 		path: 'builds',
-		filename: 'login-button.js'
+		filename: 'tasty.js'
 	},
 	module: {
 		loaders: [
