@@ -17,10 +17,6 @@ class App extends Component {
 		fetch(this.state.apiUrl + '/comments/' + this.state.recipeId)
 			.then(response => response.json())
 			.then(json => this.setState({ comments: json }))
-
-		this.setState(() => ({
-			loggedInUser: 10
-		}))
 	}
 
 	submitComment = comment => {
@@ -80,6 +76,22 @@ class App extends Component {
 			.catch(console.error)
 	}
 
+	submitLogin = (username, password) => {
+		const endpoint = this.state.apiUrl + '/auth/login'
+
+		const postData = { username, password }
+
+		fetch(endpoint, { method: 'POST', body: JSON.stringify(postData) })
+			.then(response => {
+				if (response.ok) {
+					return response.json()
+				}
+				throw new Error('Comment could not be deleted')
+			})
+			.then(user => this.setState({ loggedInUser: user.id }))
+			.catch(console.error)
+	}
+
 	render() {
 		return (
 			<React.Fragment>
@@ -89,6 +101,7 @@ class App extends Component {
 						loggedInUser={this.state.loggedInUser}
 						apiUrl={this.state.apiUrl}
 						submitComment={this.submitComment}
+						submitLogin={this.submitLogin}
 					/>
 					{this.state.comments ? (
 						<CommentList
