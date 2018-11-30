@@ -50,7 +50,34 @@ class App extends Component {
 					return { comments: [...comments, comment] }
 				})
 			)
-			.catch(error => console.error(error))
+			.catch(console.error)
+	}
+
+	deleteComment = (user_id, commentId) => {
+		const endpoint = this.state.apiUrl + '/comments/delete/' + commentId
+
+		const postData = { user_id }
+
+		console.log(endpoint)
+
+		fetch(endpoint, {
+			method: 'POST',
+			body: JSON.stringify(postData)
+		})
+			.then(response => {
+				if (response.ok) {
+					return response.json()
+				}
+				throw new Error('Comment could not be deleted')
+			})
+			.then(
+				this.setState(state => ({
+					comments: state.comments.filter(
+						({ id }) => id !== commentId
+					)
+				}))
+			)
+			.catch(console.error)
 	}
 
 	render() {
@@ -67,6 +94,7 @@ class App extends Component {
 						<CommentList
 							comments={this.state.comments}
 							loggedInUser={this.state.loggedInUser}
+							deleteComment={this.deleteComment}
 						/>
 					) : (
 						<div className="user-comment">Fetching comments...</div>

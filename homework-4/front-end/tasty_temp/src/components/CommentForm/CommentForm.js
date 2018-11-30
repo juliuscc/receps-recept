@@ -31,7 +31,10 @@ class CommentForm extends Component {
 						type="submit"
 						className="button"
 						disabled={!this.state.value}
-						onClick={() => this.submitForm(this.state.value)}
+						onClick={() => {
+							this.setState({ value: '' })
+							this.submitForm(this.state.value)
+						}}
 					>
 						Submit comment
 					</button>
