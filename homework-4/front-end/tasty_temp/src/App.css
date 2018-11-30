@@ -152,6 +152,10 @@ button::-moz-focus-inner {
 	display: none;
 }
 
+.button--margin {
+	margin: 5px;
+}
+
 @media (max-width: 870px) {
 	.button--mobile-smaller {
 		height: 30px;
@@ -687,9 +691,17 @@ input:checked ~ label.navbar__mobile-btn {
 	margin: 0 auto;
 }
 
+.auth-form--small {
+	margin: 20px auto;
+}
+
 .auth-form__text {
 	margin-bottom: 50px;
 	margin-top: -10px;
+}
+
+.auth-form--small > .auth-form__text {
+	margin: 0;
 }
 
 .auth-form__title {
@@ -727,6 +739,12 @@ input:checked ~ label.navbar__mobile-btn {
 	margin-bottom: 20px;
 	margin-top: -10px;
 	color: #a53112;
+}
+
+.auth-form__button-row {
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
 }
 
 @media (max-width: 800px) {
