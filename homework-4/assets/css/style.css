@@ -710,7 +710,7 @@ input:checked ~ label.navbar__mobile-btn {
 }
 
 .auth-form--small > .auth-form__text {
-	margin: 0;
+	margin-bottom: 15px;
 }
 
 .auth-form__title {
