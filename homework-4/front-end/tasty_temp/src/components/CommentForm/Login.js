@@ -41,7 +41,17 @@ class LoginForm extends Component {
 
 	render() {
 		return (
-			<div className="auth-form auth-form--small">
+			<form
+				className="auth-form auth-form--small"
+				onSubmit={event => {
+					event.preventDefault()
+
+					this.props.submitLogin(
+						this.state.username,
+						this.state.password
+					)
+				}}
+			>
 				<h3>Log in</h3>
 				<p className="auth-form__text">
 					Log in to Receps Recept or{' '}
@@ -73,19 +83,10 @@ class LoginForm extends Component {
 					onChange={this.updatePassword}
 					required
 				/>
-				<button
-					className="button button--place-right"
-					type="submit"
-					onClick={() => {
-						this.props.submitLogin(
-							this.state.username,
-							this.state.password
-						)
-					}}
-				>
+				<button className="button button--place-right" type="submit">
 					Log in
 				</button>
-			</div>
+			</form>
 		)
 	}
 }
@@ -107,7 +108,17 @@ class RegisterForm extends Component {
 
 	render() {
 		return (
-			<div className="auth-form auth-form--small">
+			<form
+				className="auth-form auth-form--small"
+				onSubmit={event => {
+					event.preventDefault()
+
+					this.props.submitRegister(
+						this.state.username,
+						this.state.password
+					)
+				}}
+			>
 				<h3>Register</h3>
 				<p className="auth-form__text">
 					Register a new user to Receps Recept. Do you already have an
@@ -140,19 +151,10 @@ class RegisterForm extends Component {
 					onChange={this.updatePassword}
 					required
 				/>
-				<button
-					className="button button--place-right"
-					type="submit"
-					onClick={() => {
-						this.props.submitRegister(
-							this.state.username,
-							this.state.password
-						)
-					}}
-				>
+				<button className="button button--place-right" type="submit">
 					Log in
 				</button>
-			</div>
+			</form>
 		)
 	}
 }
