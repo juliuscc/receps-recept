@@ -7,14 +7,11 @@ class App extends Component {
 	constructor(props) {
 		super(props)
 
-		this.state = {
-			recipeId: 4,
-			apiUrl: 'http://localhost:8888/index.php/api'
-		}
+		this.state = {}
 	}
 
 	componentDidMount() {
-		fetch(this.state.apiUrl + '/comments/' + this.state.recipeId)
+		fetch(this.props.apiUrl + '/comments/' + this.props.recipeId)
 			.then(response => response.json())
 			.then(json => this.setState({ comments: json }))
 	}
@@ -22,12 +19,12 @@ class App extends Component {
 	submitComment = comment => {
 		if (comment.length < 1) return
 
-		const endpoint = this.state.apiUrl + '/comments/create'
+		const endpoint = this.props.apiUrl + '/comments/create'
 
 		const postData = {
 			comment,
 			user_id: this.state.loggedInUser,
-			recipe_id: this.state.recipeId
+			recipe_id: this.props.recipeId
 		}
 
 		fetch(endpoint, {
@@ -50,7 +47,7 @@ class App extends Component {
 	}
 
 	deleteComment = (user_id, commentId) => {
-		const endpoint = this.state.apiUrl + '/comments/delete/' + commentId
+		const endpoint = this.props.apiUrl + '/comments/delete/' + commentId
 
 		const postData = { user_id }
 
@@ -77,7 +74,7 @@ class App extends Component {
 	}
 
 	submitLogin = (username, password, errorFun) => {
-		const endpoint = this.state.apiUrl + '/auth/login'
+		const endpoint = this.props.apiUrl + '/auth/login'
 
 		const postData = { username, password }
 
@@ -99,7 +96,7 @@ class App extends Component {
 	}
 
 	submitRegister = (username, password, errorFun) => {
-		const endpoint = this.state.apiUrl + '/auth/register'
+		const endpoint = this.props.apiUrl + '/auth/register'
 
 		const postData = { username, password }
 		fetch(endpoint, {
@@ -130,7 +127,7 @@ class App extends Component {
 				<div className="user-comment-section__container">
 					<Wrapper
 						loggedInUser={this.state.loggedInUser}
-						apiUrl={this.state.apiUrl}
+						apiUrl={this.props.apiUrl}
 						submitComment={this.submitComment}
 						submitLogin={this.submitLogin}
 						submitRegister={this.submitRegister}
@@ -151,8 +148,8 @@ class App extends Component {
 	}
 }
 
-const showApp = element => {
-	ReactDOM.render(<App />, element)
+const showApp = (apiUrl, recipeId, element) => {
+	ReactDOM.render(<App apiUrl={apiUrl} recipeId={recipeId} />, element)
 }
 
 module.exports = showApp
