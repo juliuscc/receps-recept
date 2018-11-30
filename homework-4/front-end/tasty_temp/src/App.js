@@ -113,6 +113,10 @@ class App extends Component {
 			.catch(console.error)
 	}
 
+	logout = () => {
+		this.setState({ loggedInUser: undefined })
+	}
+
 	render() {
 		return (
 			<React.Fragment>
@@ -124,6 +128,7 @@ class App extends Component {
 						submitComment={this.submitComment}
 						submitLogin={this.submitLogin}
 						submitRegister={this.submitRegister}
+						logout={this.logout}
 					/>
 					{this.state.comments ? (
 						<CommentList

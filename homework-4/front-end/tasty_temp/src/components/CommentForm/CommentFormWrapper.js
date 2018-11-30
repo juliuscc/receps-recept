@@ -5,7 +5,10 @@ import LoginOrRegister from './Login'
 class Wrapper extends Component {
 	render() {
 		return this.props.loggedInUser ? (
-			<CommentForm submitForm={this.props.submitComment} />
+			<CommentForm
+				submitForm={this.props.submitComment}
+				logout={this.props.logout}
+			/>
 		) : (
 			<LoginOrRegister
 				submitLogin={this.props.submitLogin}

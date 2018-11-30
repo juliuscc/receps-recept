@@ -39,6 +39,12 @@ class CommentForm extends Component {
 						Submit comment
 					</button>
 				</div>
+				<button
+					className="button button--margin"
+					onClick={this.props.logout}
+				>
+					Log out
+				</button>
 			</div>
 		)
 	}
