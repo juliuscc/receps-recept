@@ -7,7 +7,10 @@ class Wrapper extends Component {
 		return this.props.loggedInUser ? (
 			<CommentForm submitForm={this.props.submitComment} />
 		) : (
-			<LoginOrRegister submitLogin={this.props.submitLogin} />
+			<LoginOrRegister
+				submitLogin={this.props.submitLogin}
+				submitRegister={this.props.submitRegister}
+			/>
 		)
 	}
 }

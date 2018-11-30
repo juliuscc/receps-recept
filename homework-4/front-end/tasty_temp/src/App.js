@@ -81,7 +81,28 @@ class App extends Component {
 
 		const postData = { username, password }
 
-		fetch(endpoint, { method: 'POST', body: JSON.stringify(postData) })
+		fetch(endpoint, {
+			method: 'POST',
+			body: JSON.stringify(postData)
+		})
+			.then(response => {
+				if (response.ok) {
+					return response.json()
+				}
+				throw new Error('Comment could not be deleted')
+			})
+			.then(user => this.setState({ loggedInUser: user.id }))
+			.catch(console.error)
+	}
+
+	submitRegister = (username, password) => {
+		const endpoint = this.state.apiUrl + '/auth/register'
+
+		const postData = { username, password }
+		fetch(endpoint, {
+			method: 'POST',
+			body: JSON.stringify(postData)
+		})
 			.then(response => {
 				if (response.ok) {
 					return response.json()
@@ -102,6 +123,7 @@ class App extends Component {
 						apiUrl={this.state.apiUrl}
 						submitComment={this.submitComment}
 						submitLogin={this.submitLogin}
+						submitRegister={this.submitRegister}
 					/>
 					{this.state.comments ? (
 						<CommentList
