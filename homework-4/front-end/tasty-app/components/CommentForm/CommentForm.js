@@ -40,7 +40,7 @@ class CommentForm extends Component {
 					</button>
 				</div>
 				<button
-					className="button button--margin"
+					className="button button--margin-top"
 					onClick={this.props.logout}
 				>
 					Log out

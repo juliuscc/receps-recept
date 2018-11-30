@@ -156,6 +156,10 @@ button::-moz-focus-inner {
 	margin: 5px;
 }
 
+.button--margin-top {
+	margin-top: 15px;
+}
+
 @media (max-width: 870px) {
 	.button--mobile-smaller {
 		height: 30px;

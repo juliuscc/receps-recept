@@ -191,11 +191,13 @@ class LoginOrRegister extends Component {
 		this.state = { type: 'no-selection' }
 	}
 
-	selectLogin = () => {
+	selectLogin = event => {
+		if (event) event.preventDefault()
 		this.setState({ type: 'login' })
 	}
 
-	selectRegister = () => {
+	selectRegister = event => {
+		if (event) event.preventDefault()
 		this.setState({ type: 'register' })
 	}
 
