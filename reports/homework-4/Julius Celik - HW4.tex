@@ -10,20 +10,29 @@
 \pagestyle{fancy}
 
 % Create header and footer
+\usepackage[backend=bibtex, citestyle=numeric-comp, bibstyle=ieee]{biblatex}
+\addbibresource{ref.bib} % The file containing our references, in BibTeX format
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage[section]{placeins}
+
+% Create header and footer
 \headheight 27pt
 \pagestyle{fancyplain}
 \lhead{\footnotesize{Internet Applications, ID1354}}
-\chead{\footnotesize{Name of the Report}}
+\chead{\footnotesize{Tasty Recipes with JavaScript}}
 \rhead{}
 \lfoot{}
 \cfoot{\thepage\ (\pageref{LastPage})}
 \rfoot{}
 
 % Create title page
-\title{Name of the Report}
+\title{Tasty Recipes with JavaScript}
 \subtitle{Internet Applications, ID1354}
-\author{Your Name and Email Address}
-\date{Date}
+\author{Julius Recep Colliander Celik - jcelik@kth.se}
+\date{\today}
 
 \begin{document}
 
@@ -54,33 +63,18 @@ Consider the following:
 
 \section{Introduction}
 
-\textbf{This section tells \textit{what} are you going to do.} \\
-
-\noindent Explain the task and the requirements on the solution. It is very important to \textit{clearly state the requirements}. If you wrote the program together with other students, list their names and email addresses here.
+This assignment was a continuation of the last one, where front end interactivity was added to create a more fluent experience. Specifically JavaScript was used to introduce asynchronous interactions, where the window did not have to refresh for actions to be visible. The JavaScript framework React was used. To view the website it is publicly available on the link \href{https://github.com/juliuscc/kth-id1354/tree/master/homework-4}{https://github.com/juliuscc/kth-id1354/tree/master/homework-4}.
 
 \section{Literature Study}
 
-This section must prove that you collected sufficient knowledge before starting development, instead of just hacking away without knowing how to complete the task. State what you have read and briefly summarize what you have learned.
+The React documentation was used for reference \href{https://reactjs.org/docs/}{https://reactjs.org/docs/}.
 
 \section{Method}
 
-\textbf{This section tells \textit{how} you solved the task.} \\
-
-\noindent Explain how you worked when solving the tasks and how you evaluated that your solution met the requirements. Mention development tools and IDEs you used. \textit{Do not explain your solution and do not refer to code}, that belongs to the \textit{Result} section.
+I reused the code from the first assignment and modified it to achieve the tasks in this lab. I used VS Code as my text editor and used MAMP as a PHP web server and Database. I also introduced a Create React App project for development which later was extracted into another project that could enable the code to be used separately as a module on the page. Insomnia was used when developing the back-end API.
 
 \section{Result}
 
-\textbf{This section explains \textit{the result} of what you did.} \\
-
-\noindent Present the solution. Explain your code and prove that it meets the requirements. It is very important to \textit{state each requirement that is met} and explain \textit{how you met it}. It is also important to include links to your code in your Git repository, user interface screen-shots, see Figure \ref{fig:ui}, and other figures to illustrate your reasoning. Also remember that these figures must be referenced in the text.
-
-\begin{figure}[h!]
-  \begin{center}
-    \includegraphics[scale=0.3]{ui.jpg}
-    \caption{A sample user interface screenshot to illustrate caption (this text), numbering and reference in text.}
-    \label{fig:ui}
-  \end{center}
-\end{figure}
 
 \section{Discussion}
 
