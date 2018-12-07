@@ -63,7 +63,7 @@ Consider the following:
 
 \section{Introduction}
 
-This assignment was a continuation of the last one, where front end interactivity was added to create a more fluent experience. Specifically JavaScript was used to introduce asynchronous interactions, where the window did not have to refresh for actions to be visible. The JavaScript framework React was used. To view the website it is publicly available on the link \href{https://github.com/juliuscc/kth-id1354/tree/master/homework-4}{https://github.com/juliuscc/kth-id1354/tree/master/homework-4}.
+This assignment was a continuation of the last one, where front-end interactivity was added to create a more fluent experience. Specifically JavaScript was used to introduce asynchronous interactions, where the window did not have to refresh for actions to be visible. The JavaScript framework React was used. To view the website it is publicly available on the link \href{https://github.com/juliuscc/kth-id1354/tree/master/homework-4}{https://github.com/juliuscc/kth-id1354/tree/master/homework-4}.
 
 \section{Literature Study}
 
@@ -75,6 +75,42 @@ I reused the code from the first assignment and modified it to achieve the tasks
 
 \section{Result}
 
+I used the front-end framework React to implement a viewmodel sub-application, as I am familiar with React. To easily use one React app, instead of multiple apps that communicated with each other, I moved the login and register functionality to the comment section. Figure \ref{fig:comment-section} shows how the React app looks in different states.
+
+\begin{figure}
+	\centering
+	\begin{subfigure}[b]{0.3\linewidth}
+			\includegraphics[width=\linewidth]{images/screenshot-comments-logged_out.png}
+			\caption{Comment section with no user logged in.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.3\linewidth}
+		\includegraphics[width=\linewidth]{images/screenshot-comments-login.png}
+		\caption{Comment section when logging in.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.3\linewidth}
+		\includegraphics[width=\linewidth]{images/screenshot-comments-logged_in.png}
+		\caption{Comment section when user is logged in.}
+	\end{subfigure}
+	\caption{Comment section with authentication implemented with React.}
+	\label{fig:comment-section}
+\end{figure}
+
+\section{Fetch instead of AJAX}
+
+\section{Fetch for authentication}
+
+\section{Storing authentication tokens}
+
+\section{Data sent from server}
+
+\section{The viewmodel}
+
+%\begin{itemize}
+%\item The report must show that AJAX is used for login and logout; and reading, writing and deleting recipe comments.
+%\item The report must show that there is a viewmodel, and that it is managed by Knockout (or another JavaScript framework).
+%\item The report must show that no HTML code, but only data, is sent in response to an AJAX request.
+%
+%\end{itemize}
 
 \section{Discussion}
 
