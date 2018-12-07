@@ -95,22 +95,85 @@ I used the front-end framework React to implement a viewmodel sub-application, a
 	\label{fig:comment-section}
 \end{figure}
 
-\section{Fetch instead of AJAX}
+\subsection{The viewmodel}
+The viewmodel is implemented with React. React components hold a state, and depending on the state a view is rendered. It uses the observer pattern where any changes to the state triggers a re-render of the view. Figure \ref{fig:react-container} shows a wrapper container object that handles state and how it handles state. When the component is mounted, which happens once in the beginning of it's lifetime, the component fetches the state from the server which triggers the view to be re-rendered.
 
-\section{Fetch for authentication}
+Figure \ref{fig:react-component} shows a comment component and how it is rendered from the properties it is given. Notice that this component can be a function as it is stateless while the wrapper container object is a class as it has to keep state.
 
-\section{Storing authentication tokens}
+\begin{figure}
+	\begin{lstlisting}[frame=single, numbers=left, breaklines=true, basicstyle=\ttfamily\footnotesize, firstnumber=1]
+import React, { Component } from 'react'
+import './App.css'
+import Wrapper from './components/CommentForm/CommentFormWrapper'
+import CommentList from './components/Comments/Comment'
 
-\section{Data sent from server}
+class App extends Component {
+  constructor(props) {
+    super(props)
 
-\section{The viewmodel}
+    this.state = {}
+  }
 
-%\begin{itemize}
-%\item The report must show that AJAX is used for login and logout; and reading, writing and deleting recipe comments.
-%\item The report must show that there is a viewmodel, and that it is managed by Knockout (or another JavaScript framework).
-%\item The report must show that no HTML code, but only data, is sent in response to an AJAX request.
-%
-%\end{itemize}
+  componentDidMount() {
+    fetch(this.props.apiUrl + '/comments/' + this.props.recipeId)
+      .then(response => response.json())
+      .then(json => this.setState({ comments: json }))
+
+    const loggedInUser = localStorage.getItem('loggedInUser')
+    this.setState({ loggedInUser })
+  }
+  .
+  .
+  .
+	\end{lstlisting}
+	\caption{Part of React component  (\href{https://github.com/juliuscc/kth-id1354/blob/master/homework-4/front-end/tasty_temp/src/App.js}{App.js}) that handles primary state}
+	\label{fig:react-container}
+\end{figure}
+
+\begin{figure}
+\begin{lstlisting}[frame=single, numbers=left, breaklines=true, basicstyle=\ttfamily\footnotesize, firstnumber=13]
+const Comment = ({
+  comment: { comment, id: comment_id, username, user_id },
+  loggedInUser,
+  deleteComment
+}) => {
+  return (
+    <div className="user-comment">
+      <div className="user-comment__wrapper">
+        <div className="user-comment__username">{username}</div>
+        <div className="user-comment__comment">{comment}</div>
+      </div>
+      <button
+        type="submit"
+        style={loggedInUser == user_id ? {} : { visibility: 'hidden' }}
+        className="button button--danger"
+        onClick={() => deleteComment(loggedInUser, comment_id)}
+      >
+        Delete comment
+      </button>
+    </div>
+  )
+}
+\end{lstlisting}
+	\caption{React component (\href{https://github.com/juliuscc/kth-id1354/blob/f811132bd5cd1c4ac30e0b60e7a2f64143a6d152/homework-4/front-end/tasty-app/components/Comments/Comment.js\#L13}{Comment.js}) for rendering a single comment}
+	\label{fig:react-component}
+\end{figure}
+
+\subsection{Fetch for authentication}
+
+
+\subsection{Storing authentication tokens}
+
+
+\subsection{Data sent from server}
+
+
+
+\begin{itemize}
+	\item The report must show that AJAX is used for login and logout; and reading, writing and deleting recipe comments.
+	\item The report must show that there is a viewmodel, and that it is managed by Knockout (or another JavaScript framework).
+	\item The report must show that no HTML code, but only data, is sent in response to an AJAX request.
+\end{itemize}
 
 \section{Discussion}
 
