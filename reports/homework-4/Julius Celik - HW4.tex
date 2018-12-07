@@ -38,29 +38,6 @@
 
 \maketitle
 
-\section*{Tips for Report Writing}
-\textbf{REMOVE THIS SECTION BEFORE SUBMITTING THE REPORT.}\\
-
-\noindent \textit{The target audience has exactly the same skills as the author, except they do not know anything at all about the specific program described in the report.} \\
-
-Consider the following:
-
-\begin{itemize}
-  \item \textbf{The report must be \textit{centered around the requirements}. Which are they (Introduction), how did you work to meet them (Method), what is the solution that meets them (Result), and how can you be sure they are met (Discussion). This is the IMRaD method.}
-
-  \item \textbf{The report must show that you have done the work yourself and that you have understood what you have done. Both of these goals are met by carefully explaining the source code.}
-
-  \item Is spelling and grammar correct? Is spoken language avoided?
-
-  \item Does the report have a good structure with sections, subsections and paragraphs?
-
-  \item Is the solution clearly explained? Will the reader understand the program? What would you yourself want to know if you read about the program, is that included in the report?
-
-  \item Is the solution analyzed and evaluated? Are important properties of the program explained? Should there have been more extensive evaluation?
-
-  \item Is the text clarified with images and/or other figures, and with links to the code in your Git repository? Remember that all figures (images, tables, graphs, code listings, etc) shall be numbered and have a short explaining text.
-\end{itemize}
-
 \section{Introduction}
 
 This assignment was a continuation of the last one, where front-end interactivity was added to create a more fluent experience. Specifically JavaScript was used to introduce asynchronous interactions, where the window did not have to refresh for actions to be visible. The JavaScript framework React was used. To view the website it is publicly available on the link \href{https://github.com/juliuscc/kth-id1354/tree/master/homework-4}{https://github.com/juliuscc/kth-id1354/tree/master/homework-4}.
@@ -155,34 +132,59 @@ const Comment = ({
   )
 }
 \end{lstlisting}
-	\caption{React component (\href{https://github.com/juliuscc/kth-id1354/blob/f811132bd5cd1c4ac30e0b60e7a2f64143a6d152/homework-4/front-end/tasty-app/components/Comments/Comment.js\#L13}{Comment.js}) for rendering a single comment}
+	\caption{React component (\href{https://github.com/juliuscc/kth-id1354/blob/f811132bd5cd1c4ac30e0b60e7a2f64143a6d152/homework-4/front-end/tasty-app/components/Comments/Comment.js\#L13}{Comment.js}) for rendering a single comment.}
 	\label{fig:react-component}
 \end{figure}
 
-\subsection{Fetch for authentication}
+\subsection{Fetch for authentication and storing authentication tokens}
+When authenticating a user, a JSON object is sent and another JSON object is received. The JSON object sent contains the username and the password of the user, and the returning object contains the username and the user id. The user id is used as a login token however in a real application the token would be encrypted. Figure \ref{fig:api-login} shows a successful API call done with Insomnia.
 
+The authentication token is both saved to the current state as well as saved in LocalStorage. When the application starts, the wrapper container object queries local storage for the authentication token, which in turn is saved in state. This can be seen on row 18 and 19 in figure \ref{fig:react-container}. Using LocalStorage ensures that the user is persistently authenticated even after refreshing a window, or visiting another page on the web site.
 
-\subsection{Storing authentication tokens}
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=\linewidth]{images/screenshot-insomnia-login.png}
+		\caption{Screenshot of Insomnia showing login API call}
+		\label{fig:api-login}
+	\end{center}
+\end{figure}
 
+\newpage
+\subsection{Using AJAX for comments}
 
-\subsection{Data sent from server}
-
-
+API routes were added for comments as well. There were three introduced actions:
 
 \begin{itemize}
-	\item The report must show that AJAX is used for login and logout; and reading, writing and deleting recipe comments.
-	\item The report must show that there is a viewmodel, and that it is managed by Knockout (or another JavaScript framework).
-	\item The report must show that no HTML code, but only data, is sent in response to an AJAX request.
+\item Get all comments related to a recipe.
+\item Creating a new comment.
+\item Removing a comment.
 \end{itemize}
+
+\noindent
+No API calls returned HTML. All calls returned data in the JSON format.
 
 \section{Discussion}
 
-\textbf{This section \textit{analysis} the result presented in the previous section.} \\
+There were one mandatory and two optional tasks for this assignment. They were:
 
-\noindent Summarize the requirements and \textit{clearly state which of them you have met}. What lessons have you learned and what problems did you face? How were the problems solved? Should you have done something differently?
+\begin{enumerate}
+	\item \textbf{Mandatory:} JavaScript Client
+	\item \textbf{Optional:} Use a JavaScript Framework
+	\item \textbf{Optional:} Long Polling or Server-Sent Events
+\end{enumerate}
+
+\noindent
+I met the mandatory and the first optional requirement. I truly learned that React is not meant to be used in only a part of a page, even though many claim that it is suitable for that. Elm is another framework that is very suitable for using only for a small piece of an application. It is much more reasonable to create the whole view in only React and only use the server for data. Views can be static files served by a simple CDN. If they get to large they can be split into separate lazy loaded modules and if that is not enough server rendered React or Vue is a good option. To mix creating a view in both PHP and parts of it with JavaScript is unnecessarily complicated.
+
+To create static pages with a good front-end framework is a solution to the performance tasks assigned in the last assignment. If all of the web page consists of static files they can be deployed over a global CDN with a strong cache. The server costs of fetching static resources is very cheap compared to executing PHP or any other language to render an HTML file. In the first assignment I used CloudFlare to cache my web page over 155 data centers. This ensures that my users always get a quick page load, wherever they are. This is a problem I definitely notice with American sites that do not use global CDNs.
+
 
 \section{Comments About the Course}
 
-Any comment(s) related to this course offering or to coming offerings is much appreciated. \textit{Please also tell approximately how much time you spent on the assignment}, including lectures and exercises. This is of great help for course evaluation.
+I spent most time on this assignment. I understand that there is so much material in this course that it is difficult to capture everything which is the reason that using AJAX to improve the current website was proposed. It is important that JavaScript is introduced in this course. I do however not agree that this was the best assignment, as it required something that is not often done in the industry and is only done as a \textit{hacky} solution. I refer to mixing parts of the view being server rendered and other parts being client rendered.
+
+An alternative assignment could be to improve the recipe page with minor client interactivity. It does not have to be so much. Another assignment could be to create a simple React or Vue page from scratch. Instead of it being complicated it could be something as simple as a todo-app.
+
+I understand that the purpose is to teach the MVVM model, however that is something I do not agree on being very important. Not to say that the MVVM model is not used a lot in the industry but more that it is easy to understand afterwards and the focus could be more on learning JavaScript. JavaScript is an important language to know as the industry is moving towards using it more and more. It is unavoidable compared to PHP.
 
 \end{document}
