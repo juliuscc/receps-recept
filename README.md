@@ -1,4 +1,4 @@
-# kth-id1354
+# Receps Recept
 
 [![Build Status](https://travis-ci.org/juliuscc/kth-id1354.svg?branch=master)](https://travis-ci.org/juliuscc/kth-id1354)
 
